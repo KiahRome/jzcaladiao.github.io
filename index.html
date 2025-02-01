@@ -3,12 +3,28 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width initial-scale=1.0">
-        <title>OSDS Landing Page</title>
-        <script src="https://cdn.tailwindcss.com"></script>
+        <title>Landing Page Prototype</title>
+        
+        <style>
+            body::selection {
+                background-color: #ffd230;
+                color: white;
+            }
+            header {
+                position: relative;
+                margin-top: 4px;
+                margin-left: 8px;
+            }
+
+            
+            @media screen {
+                /* lg:mt-4 lg:ml-16 */
+            }
+        </style>
     </head>
-    <body class="selection:bg-amber-300 selection:text-white">
-        <img src="assets/bg-plm-facade.png" class="absolute bottom-0"/>
-        <header class="relative mt-1 ml-2 lg:mt-4 lg:ml-16">
+    <body>
+        <img src="https://media.canva.com/v2/image-resize/format:PNG/height:168/quality:100/uri:s3%3A%2F%2Fmedia-private.canva.com%2FDQRPw%2FMAGdx4DQRPw%2F1%2Fp.png/watermark:F/width:550?csig=AAAAAAAAAAAAAAAAAAAAAPg2h5p3UAd-C2yS6OfJOklj98On8SJH0Cf8TJ1Kwz1c&exp=1738420851&osig=AAAAAAAAAAAAAAAAAAAAAOfmetRcZs5igxiXthA0LGcsUnEBVw80U8MV1TwvwSzL&signer=media-rpc&x-canva-quality=thumbnail_large" style="bottom:0"/>
+        <header>
             <div id="logo" class="inline-flex relative items-end gap-x-1 lg:gap-x-4">
                 <img class="h-6 w-6 lg:h-10 lg:w-10" src="assets/plm-logo.png"/>
                 <p class="text-xs lg:text-base text-indigo-800 font-medium lg:font-semibold cursor-default">Discipline Module</p>
