@@ -10,30 +10,92 @@
                 background-color: #ffd230;
                 color: white;
             }
+            /* Body Background image */
+            body img {
+                position: absolute;
+                bottom: 0;
+            }
             header {
                 position: relative;
                 margin-top: 4px;
                 margin-left: 8px;
             }
 
+            header div:first-child {
+                display: inline-flex;
+                position: relative;
+                align-items: end;
+                /* 0.25rem = 4px */
+                gap: 4px; 
+            }
+            header div:first-child img {
+                height: 1.5rem;
+                width: 1.5rem;
+            }
+            header div:first-child p {
+                font-size: x-small;
+                font-weight: 500;
+                color: #372aac;
+            }
+
+            header div:last-child {
+                margin-top: 1rem;
+            }
+            header div:last-child h2 {
+                color: #e17100;
+                font-weight: 600;
+                font-size: xx-large;
+            }
+            header div:last-child p {
+                color: #372aac;
+                font-weight: 500;
+            }
+
+            header div:last-child nav {
+                position: relative;
+                display: flex;
+                margin-right: 0.5rem;
+            }
+            nav a {
+                color: #1d293d;
+                font-weight: 500;
+                font-size: x-small;
+                padding: 4px;
+                padding-left: 0.75rem;
+                padding-right: 0.75rem;
+                background-color: #f1f5f9;
+                border-radius: 0.25rem;
+            }
+            nav a:hover {
+                background-color: #ffd230;
+            }
+
             
             @media screen {
-                /* lg:mt-4 lg:ml-16 */
+                /* header -- lg:mt-4 lg:ml-16 */
+                /* div logo -- lg:gap-x-4 */
+                /* div logo img -- lg:h-10 lg:w-10 */
+                /* div logo p -- lg:text-base lg:font-semibold */
+                /* div child(2) -- lg:space-y-2 */
+                /* div child(2) h2 -- lg:font-bold lg:text-4xl */
+                /* div child(2) p -- lg:font-semibold lg:text-xl */
+                /* div child(2) nav -- lg:justify-end lg:mr-16 */
+                /* nav a -- lg:text-base lg:p-2 lg:px-6 lg:rounded-md */
             }
         </style>
     </head>
     <body>
-        <img src="https://media.canva.com/v2/image-resize/format:PNG/height:168/quality:100/uri:s3%3A%2F%2Fmedia-private.canva.com%2FDQRPw%2FMAGdx4DQRPw%2F1%2Fp.png/watermark:F/width:550?csig=AAAAAAAAAAAAAAAAAAAAAPg2h5p3UAd-C2yS6OfJOklj98On8SJH0Cf8TJ1Kwz1c&exp=1738420851&osig=AAAAAAAAAAAAAAAAAAAAAOfmetRcZs5igxiXthA0LGcsUnEBVw80U8MV1TwvwSzL&signer=media-rpc&x-canva-quality=thumbnail_large" style="bottom:0"/>
+        <img src="https://media.canva.com/v2/image-resize/format:PNG/height:168/quality:100/uri:s3%3A%2F%2Fmedia-private.canva.com%2FDQRPw%2FMAGdx4DQRPw%2F1%2Fp.png/watermark:F/width:550?csig=AAAAAAAAAAAAAAAAAAAAAPg2h5p3UAd-C2yS6OfJOklj98On8SJH0Cf8TJ1Kwz1c&exp=1738420851&osig=AAAAAAAAAAAAAAAAAAAAAOfmetRcZs5igxiXthA0LGcsUnEBVw80U8MV1TwvwSzL&signer=media-rpc&x-canva-quality=thumbnail_large"/>
         <header>
-            <div id="logo" class="inline-flex relative items-end gap-x-1 lg:gap-x-4">
-                <img class="h-6 w-6 lg:h-10 lg:w-10" src="assets/plm-logo.png"/>
-                <p class="text-xs lg:text-base text-indigo-800 font-medium lg:font-semibold cursor-default">Discipline Module</p>
+            <div>
+                <img src="https://media.canva.com/v2/image-resize/format:PNG/height:546/quality:100/uri:s3%3A%2F%2Fmedia-private.canva.com%2FCkzAo%2FMAGdx6CkzAo%2F1%2Fp.png/watermark:F/width:550?csig=AAAAAAAAAAAAAAAAAAAAAPCvNpCsNfLnsHdvnzNaS1yXZcvwbvKGnWaXXjh1feqg&exp=1738422154&osig=AAAAAAAAAAAAAAAAAAAAAKf1PN-WR6xxMWFs2U3RkmkhrkWY9vZgNE_kbv6Z99Rl&signer=media-rpc&x-canva-quality=thumbnail_large"/>
+                <p>Discipline Module</p>
             </div>
-            <div class="mt-4 lg:space-y-2">
-                <h2 class="text-amber-600 font-semibold text-2xl lg:font-bold lg:text-4xl cursor-default">Pamantasan ng Lungsod ng Maynila</h2>
-                <p class="text-indigo-800 font-medium lg:font-semibold lg:text-xl cursor-default">The Office of Student Development and Services</p>
-                <nav class="relative flex lg:justify-end mr-2 lg:mr-16">
-                    <a href="login-page.html" class="text-slate-800 font-medium text-xs lg:text-base p-1 px-3 lg:p-2 lg:px-6 bg-slate-100 hover:bg-amber-300 rounded lg:rounded-md">Sign In</a>
+            <div>
+                <h2>Pamantasan ng Lungsod ng Maynila</h2>
+                <p>The Office of Student Development and Services</p>
+                <nav>
+                    <a href="login-page.html">Sign In</a>
                 </nav>
             </div>
         </header>
