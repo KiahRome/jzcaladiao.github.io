@@ -6,52 +6,51 @@
         <title>Landing Page Prototype</title>
         
         <style>
-            body::selection {
+            body {
+                overflow-x: hidden;
+            }
+            ::selection {
                 background-color: #ffd230;
                 color: white;
             }
             /* Body Background image */
-            body img {
+            .bg-plm-facade {
                 position: absolute;
                 bottom: 0;
+                width: 100%;
             }
             header {
                 position: relative;
                 margin-top: 4px;
                 margin-left: 8px;
             }
-
-            header div:first-child {
-                display: inline-flex;
-                position: relative;
-                align-items: end;
-                /* 0.25rem = 4px */
-                gap: 4px; 
+            div p {
+                font-size: 0.75rem;
+                line-height: 1rem;
+                font-weight: 500;
+                color: #372aac;
             }
-            header div:first-child img {
+            .plm-logo {
+                display: flex;
+                position: relative;
+                align-items: center;
+            }
+            .plm-logo img {
                 height: 1.5rem;
                 width: 1.5rem;
-            }
-            header div:first-child p {
-                font-size: x-small;
-                font-weight: 500;
-                color: #372aac;
+                margin-right: 4px;
             }
 
-            header div:last-child {
+            .plm-osds {
                 margin-top: 1rem;
             }
-            header div:last-child h2 {
+            .plm-osds h2 {
                 color: #e17100;
                 font-weight: 600;
-                font-size: xx-large;
+                font-size: 2rem;
+                line-height: 2rem;
             }
-            header div:last-child p {
-                color: #372aac;
-                font-weight: 500;
-            }
-
-            header div:last-child nav {
+            .plm-osds nav {
                 position: relative;
                 display: flex;
                 margin-right: 0.5rem;
@@ -59,12 +58,13 @@
             nav a {
                 color: #1d293d;
                 font-weight: 500;
-                font-size: x-small;
+                font-size: 0.75rem;
                 padding: 4px;
                 padding-left: 0.75rem;
                 padding-right: 0.75rem;
                 background-color: #f1f5f9;
                 border-radius: 0.25rem;
+                text-decoration: none;
             }
             nav a:hover {
                 background-color: #ffd230;
@@ -85,13 +85,13 @@
         </style>
     </head>
     <body>
-        <img src="https://media.canva.com/v2/image-resize/format:PNG/height:168/quality:100/uri:s3%3A%2F%2Fmedia-private.canva.com%2FDQRPw%2FMAGdx4DQRPw%2F1%2Fp.png/watermark:F/width:550?csig=AAAAAAAAAAAAAAAAAAAAAPg2h5p3UAd-C2yS6OfJOklj98On8SJH0Cf8TJ1Kwz1c&exp=1738420851&osig=AAAAAAAAAAAAAAAAAAAAAOfmetRcZs5igxiXthA0LGcsUnEBVw80U8MV1TwvwSzL&signer=media-rpc&x-canva-quality=thumbnail_large"/>
+        <img class="bg-plm-facade" src="https://media.canva.com/v2/image-resize/format:PNG/height:168/quality:100/uri:s3%3A%2F%2Fmedia-private.canva.com%2FDQRPw%2FMAGdx4DQRPw%2F1%2Fp.png/watermark:F/width:550?csig=AAAAAAAAAAAAAAAAAAAAAPg2h5p3UAd-C2yS6OfJOklj98On8SJH0Cf8TJ1Kwz1c&exp=1738420851&osig=AAAAAAAAAAAAAAAAAAAAAOfmetRcZs5igxiXthA0LGcsUnEBVw80U8MV1TwvwSzL&signer=media-rpc&x-canva-quality=thumbnail_large"/>
         <header>
-            <div>
+            <div class="plm-logo">
                 <img src="https://media.canva.com/v2/image-resize/format:PNG/height:546/quality:100/uri:s3%3A%2F%2Fmedia-private.canva.com%2FCkzAo%2FMAGdx6CkzAo%2F1%2Fp.png/watermark:F/width:550?csig=AAAAAAAAAAAAAAAAAAAAAPCvNpCsNfLnsHdvnzNaS1yXZcvwbvKGnWaXXjh1feqg&exp=1738422154&osig=AAAAAAAAAAAAAAAAAAAAAKf1PN-WR6xxMWFs2U3RkmkhrkWY9vZgNE_kbv6Z99Rl&signer=media-rpc&x-canva-quality=thumbnail_large"/>
                 <p>Discipline Module</p>
             </div>
-            <div>
+            <div class="plm-osds">
                 <h2>Pamantasan ng Lungsod ng Maynila</h2>
                 <p>The Office of Student Development and Services</p>
                 <nav>
