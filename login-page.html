@@ -4,45 +4,44 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width initial-scale=1.0">
         <title>OSDS Login Page</title>
-        <script src="https://cdn.tailwindcss.com"></script>
     </head>
-    <body class="selection:bg-amber-50 selection:text-amber-600">
-        <img class="absolute opacity-20 bg-cover w-screen h-screen" src="assets/illustration.png"/>
-        <main class="relative grid grid-cols-12 tracking-wide min-h-screen">
-            <a href="landing-page.html" class="relative mt-10 ml-2 lg:mt-20 lg:ml-16 col-span-2">
-                <p class="text-xs lg:hidden font-normal p-2 px-3 bg-slate-100 hover:bg-indigo-300 rounded shadow text-center">Home</p>
-                <p class="text-base hidden lg:block font-medium p-2 px-6 bg-slate-100 hover:bg-indigo-300 rounded-md shadow text-center">Back to Home</p>
+    <body>
+        <img class="bg-plm-poster" src="https://media.canva.com/v2/image-resize/format:JPG/height:253/quality:92/uri:s3%3A%2F%2Fmedia-private.canva.com%2FQgjrs%2FMAGdx_Qgjrs%2F1%2Fp.jpg/watermark:F/width:550?csig=AAAAAAAAAAAAAAAAAAAAABhEPnb_y3vGXjWNHPRnFK1O-1PjovIAvZsm8tynMR4L&exp=1738421640&osig=AAAAAAAAAAAAAAAAAAAAAPRWXzi8VFQUeemuFH0hchShUqMqbErEBFEDkLUYlxrx&signer=media-rpc&x-canva-quality=thumbnail_large"/>
+        <main>
+            <a href="landing-page.html">
+                <p>Home</p>
+                <p>Back to Home</p>
             </a>
-            <article class="my-3 flex flex-col justify-center items-center text-center col-start-4 col-span-6 bg-white rounded-lg bg-opacity-90 shadow">
-                <header class="flex flex-col justify-center items-center">
-                    <div id="logo" class="flex justify-between lg:px-8 lg:space-x-5 lg:items-center text-center">
-                        <div id="logo" class="flex justify-between px-4 space-x-1 lg:px-8 lg:space-x-5 items-center text-center">
-                        <img class="h-10 w-10 lg:h-16 lg:w-16" src="assets/plm-logo.png"/>
-                        <h2 class="text-xs lg:text-lg font-mono font-semibold text-amber-600">Pamantasan ng Lungsod ng Maynila</h2>
-                        <img class="h-10 w-10 lg:h-16 lg:w-16" src="assets/osdslogo.png"/>
+            <article>
+                <header>
+                    <div>
+                        <div>
+                        <img src="https://media.canva.com/v2/image-resize/format:PNG/height:546/quality:100/uri:s3%3A%2F%2Fmedia-private.canva.com%2FCkzAo%2FMAGdx6CkzAo%2F1%2Fp.png/watermark:F/width:550?csig=AAAAAAAAAAAAAAAAAAAAAPCvNpCsNfLnsHdvnzNaS1yXZcvwbvKGnWaXXjh1feqg&exp=1738422154&osig=AAAAAAAAAAAAAAAAAAAAAKf1PN-WR6xxMWFs2U3RkmkhrkWY9vZgNE_kbv6Z99Rl&signer=media-rpc&x-canva-quality=thumbnail_large"/>
+                        <h2>Pamantasan ng Lungsod ng Maynila</h2>
+                        <img src="https://media.canva.com/v2/image-resize/format:PNG/height:504/quality:100/uri:s3%3A%2F%2Fmedia-private.canva.com%2FBFqV0%2FMAGdx8BFqV0%2F1%2Fp.png/watermark:F/width:495?csig=AAAAAAAAAAAAAAAAAAAAAP2vzbaFxO5h505gM5-ewv1xr6Jn2R4Eq5bQMzc8nsxe&exp=1738421354&osig=AAAAAAAAAAAAAAAAAAAAAMcU460y7Ufa-9z1ngW8nWBCIRsJ8B2npxQL9e6LA6Yx&signer=media-rpc&x-canva-quality=thumbnail_large"/>
                     </div>
                     </div>
-                    <div class="mt-3 lg:mt-8 cursor-default">
-                        <h2 class="text-sm lg:text-2xl font-medium lg:font-semibold px-4 lg:px-7 font-mono text-indigo-800">The Office of Student Development and Services</h2>
+                    <div>
+                        <h2>The Office of Student Development and Services</h2>
                     </div>
-                    <div class="w-full px-6 lg:px-24">
-                        <form method="post" class="mt-8 lg:mt-16">
-                            <p class="text-xs lg:text-base cursor-default">Enter your PLM credentials below</p>
-                            <div><input type="email" id="" class="w-full my-2 lg:my-4 appearance-none rounded-md p-1 pt-2 lg:p-2 lg:pt-4 text-indigo-800 lg:font-medium outline-none placeholder:font-light lg:placeholder:text-xl ring-2 ring-gray-300 focus:ring-indigo-800 focus:placeholder:text-gray-300" placeholder="Email address"/></div>
-                            <div><input type="password" id="" class="w-full mb-2 lg:mb-4 appearance-none rounded-md p-1 pt-2 lg:p-2 lg:pt-4 text-indigo-800 lg:font-medium outline-none placeholder:font-light lg:placeholder:text-xl ring-2 ring-gray-300 focus:ring-indigo-800 focus:placeholder:text-gray-300" placeholder="Password"/></div>
-                            <div><input type="button" value="Continue" class="text-xs lg:text-lg text-white rounded-md lg:font-semibold p-2 px-6 bg-indigo-800 cursor-pointer hover:bg-amber-600" onclick="location.href='college-dean-dashboard.html'"></div>
-                            <div class="mt-4 lg:mt-8 mb-8"><a href="#" class="text-indigo-800 text-xs lg:text-base hover:text-amber-600">Forget your password?</a></div>
+                    <div>
+                        <form method="post">
+                            <p>Enter your PLM credentials below</p>
+                            <div><input type="email" placeholder="Email address"/></div>
+                            <div><input type="password" placeholder="Password"/></div>
+                            <div><input type="button" value="Continue" onclick="location.href='college-dean-dashboard.html'"></div>
+                            <div><a href="#">Forget your password?</a></div>
                         </form>
                     </div>
                 </header>
             </article>
-            <a href="#" class="relative mt-10 mr-2 lg:mt-20 lg:mr-16 col-start-11 col-span-2">
-                <p class="text-xs lg:hidden font-normal p-2 px-3 bg-slate-100 hover:bg-indigo-300 rounded shadow text-center">Help?</p>
-                <p class="text-base hidden lg:block font-medium p-2 px-6 bg-slate-100 hover:bg-indigo-300 rounded-md shadow text-center">Need Help?</p>
+            <a href="#">
+                <p>Help?</p>
+                <p>Need Help?</p>
             </a>
-            <div id="logo" class="flex flex-row items-center absolute right-0 bottom-0 gap-x-1 lg:gap-x-2 opacity-50 mt-4 p-1">
-                <p class="text-xs text-indigo-800 font-light lg:font-normal cursor-default">Discipline Module</p>
-                <img class="h-4 w-4 lg:h-6 lg:w-6" src="assets/plm-logo.png"/>
+            <div>
+                <p>Discipline Module</p>
+                <img src="https://media.canva.com/v2/image-resize/format:PNG/height:546/quality:100/uri:s3%3A%2F%2Fmedia-private.canva.com%2FCkzAo%2FMAGdx6CkzAo%2F1%2Fp.png/watermark:F/width:550?csig=AAAAAAAAAAAAAAAAAAAAAPCvNpCsNfLnsHdvnzNaS1yXZcvwbvKGnWaXXjh1feqg&exp=1738422154&osig=AAAAAAAAAAAAAAAAAAAAAKf1PN-WR6xxMWFs2U3RkmkhrkWY9vZgNE_kbv6Z99Rl&signer=media-rpc&x-canva-quality=thumbnail_large"/>
             </div>
         </main>
     </body>
