@@ -3,9 +3,710 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width initial-scale=1">
-        <link href="gad-cfo-refactoring.css" rel="stylesheet" type="text/css">
         <script src="https://cdn.tailwindcss.com"></script>
-        <script src="gad-cfo-refactoring.js" type="text/javascript"></script>
+        
+        <style>
+            /* Global Styles */
+            /* Scroll-Smooth */
+            * {
+                scroll-behavior: smooth;
+                font-size: 2vh;
+            }
+            span, a {
+                width: 100%;
+            }
+
+            /* Webkit-Scrollbar */
+            ::-webkit-scrollbar {
+                width: 2vh;
+            }
+            ::-webkit-scrollbar-track {
+                box-shadow: inset 0 0 0.75vh rgb(81, 67, 175);
+                border-radius: 99rem;
+            }
+            ::-webkit-scrollbar-thumb {
+                border-radius: 2vh;
+                box-shadow: 0 0 0.5vh rgb(81, 67, 175);
+            }
+            ::-webkit-scrollbar-thumb:hover {
+                background: rgba(81, 67, 175, 0.8);
+            }
+            ::-webkit-scrollbar-thumb:active {
+                background: rgba(25, 14, 97, 0.9);
+            }
+            ::-webkit-scrollbar-button, ::-webkit-scrollbar-thumb{
+                background: rgb(173, 163, 241);
+            }
+
+            ::selection {
+            background-color: #8B5CF6; 
+            }
+
+            /* MAIN */
+            .The_Container {
+                position: relative;
+                width: 100%;
+                min-height: 100vh;
+                overflow-x: hidden;
+            }
+            /* Main BG */
+            .Main_BG {
+                position: fixed;
+                top: 0;
+                height: 100%;
+                width: 100%;
+                z-index: -1;
+                background-image: radial-gradient(circle farthest-corner at 0% 20%, #663a9c 10%, #7933ce 40%, #371462 75%, #a588c0 75.15%, #a588c0 0);
+            }
+            /* Pages BG */
+            .Pages_BG {
+                background: linear-gradient(45deg, #220848, #9a5bf7, #ae53f9, #280842);
+                background-size: 400% 400%;
+                animation: gradient 10s ease infinite;
+            }
+            /* BG_Gradient Keyframes */
+            /* Gradient Keyframes */
+            @keyframes gradient {
+                0%, 15%, 85%, 100% {
+                    background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+            }
+            .Top_Bar_Navigator {
+                position: fixed;
+                top: 0;
+                
+                display: grid;
+                overflow-y: hidden;
+                grid-template-columns: repeat(10, minmax(0, 1fr));
+
+                height: 10vh;
+                width: 100%;
+                min-width: 100vh;
+                max-height: 10vh;
+                z-index: 100;
+
+                background-color: #ffffff;
+                color: #5B21B6;
+                border-bottom-width: 0.25vh;
+                border-style: solid;
+                border-color: #6b21a8;
+
+                transition-duration: 300ms;
+            }
+            .Nav_Option {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                flex-direction: row;
+
+                padding: 0 0.5vh;
+                cursor: pointer;
+            }
+            .Nav_Option:hover {
+                background-color: #ebe6fe;
+                font-weight: 750;
+            }
+            .Nav_Option:active {
+                font-weight: 750;
+                background-color: #ebe6fe;
+            }
+            .Nav_Option:active div {
+                padding-bottom: 0.3vh;
+            }
+            .Nav_Option:hover div, .Nav_Option:active div {
+                display: block;
+            }
+            .Nav_Logo {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: row;
+                text-align: center;
+                padding: 0 0.5vh;
+            }
+            .Nav_Logo img {
+                width: 7.2vh;
+                height: 7.2vh;
+                margin: 0 1vh;
+            }
+            .Nav_Option a {
+                width: 100%;
+                height: 100%;
+                border-width: 0;
+                
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .Nav_Option span {
+                border-width: 0 0.1vh;
+                border-color: #DDD6FE;
+                margin: 1vh 0;
+            }
+            .Nav_Option div {
+                display: none;
+                position: absolute;
+                bottom: 1vh;
+
+                width: 70%;
+                background-color: #8B5CF6; 
+                padding-bottom: 0.15vh;
+            }
+            .Nav_Menu_Keeper {
+                position: fixed;
+                top: 105%;
+                scale: 0;
+                opacity: 0%;
+                z-index: 101;
+                padding-top: 1.5vh;
+
+                transition-duration: 300ms;
+            }
+            .Nav_Menu {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+
+                overflow-y: auto;
+                max-height: 45vh;
+                max-width: 40vw;
+
+                background-color: #f4edff;
+                border-width: 0.25vh;
+                border-radius: 1vh;
+                border-style: solid;
+                border-color: #6b21a8;
+                padding: 2vh 0.1vh;
+            }
+            .Nav_Menu_Display {
+                top: 10vh;
+                opacity: 1;
+                scale: 1;
+            }
+            .Nav_Menu a {
+                margin: 0.2vh 0;
+                padding: 0.8vh 3vh;
+                font-weight: 300;
+
+                transition-duration: 100ms;
+            }
+            .Nav_Menu a:hover {
+                background-color: #dfccff;
+                font-weight: 550;
+                color: #4f14ac;
+            }
+            /* ~~END Header~~ */
+
+            /* Homepage Menu */
+            .Twos_Container {
+                grid-template-columns: 40vw 60vw;
+                min-height: 100vh;
+                display: grid;
+                overflow: hidden;
+            }
+            .The_Banner {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+                margin: 5vh 0 0;
+            }
+            .Banner_Layer {
+                border-style: solid;
+                padding: 1vh 0 1vh 5vh;
+
+                border-left-width: 2vh;
+                border-color: #ffffff;
+            }
+            .Banner_Title {
+                margin-bottom: 5vh;
+            }
+            .Banner_Title p {
+                font-size: 9.25vh;
+                font-weight: 950;
+                letter-spacing: 0.2vh;
+                line-height: 9vh;
+                color: #ffffff;
+
+                /* Neon Lights */
+                /* text-shadow: 0 0 1vh #a588c0; */
+            }
+            .Banner_List {
+                display: flex;
+                flex-direction: column;
+                max-width: 70vh;
+                width: 100%;
+            }
+            .Banner_List a {
+                padding: 1vh 5vh 1vh 2vh;
+                margin: 1vh 0;
+                color: #ffffff;
+                background: linear-gradient(to right, #280842 25%, #2e1065 75%, #4f14ac 100%);
+                border-radius: 1.5vh;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            }
+            .Banner_List span {
+                padding: 1vh 5vh 1vh 2vh;
+                font-weight: 300;
+                letter-spacing: 0.2vh;
+
+                transition-duration: 200ms;
+            }
+            .Banner_List svg {
+                width: 3vh;
+                height: 3vh;
+
+                transition-delay: 100ms;
+                transition-duration: 300ms;
+            }
+            .Banner_List a:hover span {
+                padding: 0.8vh 5vh 0.8vh 0.5vh;
+                font-size: 2.25vh;
+                font-weight: 650;
+            }
+            .Banner_List a:hover svg {
+                transform: translateX(3vh);
+            }
+            .The_Carousel {
+                display: flex;
+                align-items: center;
+
+                margin: 10vh 0 0;
+            }
+            .Cards {
+                display: flex;
+                align-items: center;
+                flex-direction: row;
+                position: relative;
+                width: 100%;
+                height: 100%;
+            }
+            .Article_Styles {
+                position: absolute;
+                width: 25%;
+                height: 60vh;
+                padding: 2vh 1vh 2vh 2vh;
+
+                color: #ffffff;
+                border-width: 0.3vh;
+                border-color: rgba(165, 116, 255, 0.9);
+                background-color: rgba(46, 16, 101, 0.8);
+
+                transition-duration: 1200ms;
+            }
+            .Article_Styles:hover {
+                opacity: 0.7;
+                border-color: rgb(46, 16, 101);
+                background-color: rgb(165, 116, 255);
+            }
+            .Article_Styles a {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                transition-duration: inherit;
+            }
+            .Article_Styles a span {
+                position: relative;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+
+                max-height: 33vh;
+                overflow: hidden;
+                
+                transition-duration: inherit;
+            }
+            .Article_Styles a span span {
+                display: flex;
+                align-items: center;
+                position: absolute;
+                text-align: center;
+                overflow: hidden;
+                max-height: 6vh;
+
+                font-size: 3vh;
+                font-weight: 500;
+                line-height: 3vh;
+                letter-spacing: 0.1vh;
+
+                transition-duration: inherit;
+            }
+            .Article_Styles a span p {
+                text-align: justify;
+                font-size: 1.25vh;
+                font-weight: 100;
+
+                padding-right: 1.25vh;
+                margin: 8vh 0 0;
+                max-height: 30vh;
+                overflow-x: hidden;
+
+                /* Smaller Scrollbar */
+                &::-webkit-scrollbar {
+                    width: 1vh;
+                }
+                &::-webkit-scrollbar-button{
+                    display: none;
+                }
+                
+                transition-duration: inherit;
+            }
+            .Article_Styles a div {
+                height: 100%;
+                width: fit-content;
+                display: flex;
+                align-items: center;
+                max-height: 30vh;
+
+                margin: 0 1vh 2.5vh 0;
+                
+                transition-duration: inherit;
+            }
+            .Article_Styles a div img {
+                width: auto;
+                max-height: 30vh;
+                
+                border-width: 0.2vh;
+                border-color: #f4edff;
+                
+                transition-duration: inherit;
+            }
+            .Button {
+                position: absolute;
+                bottom: 35%;
+
+                display: flex;
+                align-items: center;
+                z-index: 55;
+
+                margin: 0 20vh;
+                padding: 1.5vh; 
+                background-color: #ffffff;
+                opacity: 0.25;
+
+                color: #7C3AED; 
+                border-radius: 99rem;
+                border-width: 0.5vh;
+                border-color: #7C3AED;
+
+                cursor: pointer;
+                transition-duration: 300ms;
+            }
+            .ButtonB {
+                position: absolute;
+                bottom: 35%;
+
+                display: flex;
+                align-items: center;
+                z-index: 55;
+
+                margin: 0 20vh;
+                padding: 1.5vh; 
+                background-color: #ffffff;
+                opacity: 0.25;
+
+                color: #7C3AED; 
+                border-radius: 99rem;
+                border-width: 0.5vh;
+                border-color: #7C3AED;
+
+                cursor: pointer;
+                transition-duration: 300ms;
+            }
+            .Boxes_Container {
+                position: relative;
+                min-width: 90vw;
+                min-height: 100vh;
+                overflow: hidden;
+            }
+            .Toggle_Goto svg, .Toggle_Goto_Hover svg {
+                width: 4.75vh;
+                height: 4.75vh;
+            }
+            .Toggle_Goto_Hover {
+                display: none;
+            }
+            .Button:hover {
+                background-color: #f4edff;
+                opacity: 1;
+            }
+            .Button:active {
+                background-color: #6d3ab9;
+                color: #f4edff;
+                opacity: 1;
+
+                transition-duration: 50ms;
+            }
+            .Button:hover .Toggle_Goto {
+                display: none;
+            }
+            .Button:hover .Toggle_Goto_Hover {
+                display: block;
+            }
+            .Button:active .Toggle_Goto {
+                display: none;
+                transition-duration: 50ms;
+            }
+            .Button:active .Toggle_Goto_Hover {
+                display: block;
+                transition-duration: 50ms;
+            }
+            .ButtonB:hover {
+                background-color: #f4edff;
+                opacity: 1;
+            }
+            .ButtonB:active {
+                background-color: #6d3ab9;
+                color: #f4edff;
+                opacity: 1;
+
+                transition-duration: 50ms;
+            }
+            .ButtonB:hover .Toggle_Goto {
+                display: none;
+            }
+            .ButtonB:hover .Toggle_Goto_Hover {
+                display: block;
+            }
+            .ButtonB:active .Toggle_Goto {
+                display: none;
+                transition-duration: 50ms;
+            }
+            .ButtonB:active .Toggle_Goto_Hover {
+                display: block;
+                transition-duration: 50ms;
+            }
+            #active {
+                height: 85vh;
+                left: 25%;
+                width: 35%;
+                z-index: 50;
+            }
+            #active a span {
+                max-height: 50vh;
+                overflow: hidden;
+            }
+            #active a span span {
+                overflow: hidden;
+                max-height: 10vh;
+
+                font-size: 5vh;
+                font-weight: 750;
+                line-height: 5vh;
+                letter-spacing: 0.2vh;
+
+                transition-delay: 440ms;
+                transition-duration: inherit;
+            }
+            #active a span p {
+                font-size: 2vh;
+                font-weight: 450;
+                
+                margin: 15vh 0 0;
+                max-height: 45vh;
+                overflow-x: hidden;
+                
+                transition-delay: 440ms;
+                transition-duration: inherit;
+
+                /* Reset Scrollbar Size */
+                &::-webkit-scrollbar {
+                    width: 2vh;
+                }
+            }
+            #active a div {
+                max-height: 36vh;
+            }
+            #active a div img {
+                max-height: 36vh;
+                transition-duration: inherit;
+            }
+            #card-zero {
+                left: 5%;
+                z-index: 47;
+                opacity: 0.6;
+            }
+            #card-two {
+                left: 50%;
+                z-index: 49;
+                opacity: 0.6;
+            }
+            #card-three {
+                left: 70%;
+                z-index: 48;
+                opacity: 0.4;
+            }
+            #card-zero:hover, #card-two:hover, #card-three:hover {
+                opacity: 1;
+            }
+
+            /* Cards */
+            .Box_Styles {
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                
+                color: white;
+                border-width: 1vh;
+                border-color: rgba(165, 116, 255, 0.9);
+                background-color: rgba(46, 16, 101, 0.8);
+
+                transition-duration: 1200ms;
+            }
+            .Box_Styles a {
+                width: 100%;
+                margin: 2vh 0;
+                padding: 1vh 5vh;
+                scale: 1;
+                transition-duration: 1200ms;
+            }
+            .Box_Styles a:hover {
+                background-color: rgb(64, 4, 175);
+                font-weight: 700;
+            }
+            .Box_Styles a:hover svg {
+                transform: translateX(3vh);
+            }
+            .Box_Styles div {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                transition-duration: 1200ms;
+            }
+            .Box_Styles div:nth-child(2) {
+                opacity: 0;
+                margin: 1vh 0 0 5vh;
+                background-color: rgb(165, 116, 255);
+                transition-duration: 300ms;
+            }
+            .Box_Styles a:hover div:nth-child(2) {
+                opacity: 1;
+            }
+            .Box_Styles svg {
+                margin: 0 7vh 0 0;
+                width: 0;
+                height: 0;
+                transition-duration: inherit;
+            }
+            .Box_Styles span {
+                font-size: 0;
+                font-weight: 600;
+                transition-duration: inherit;
+            }
+            .Box_Styles a:hover span {
+                font-weight: 400;
+            }
+            #box-zero {
+                left: 1%;
+                height: 40vh;
+                width: 20%;
+                z-index: 48;
+                transition-delay: 400ms;
+                transition-duration: 1200ms;
+            }
+            #box-one {
+                left: 10%;
+                height: 60vh;
+                width: 30%;
+                z-index: 49;
+                transition-delay: 300ms;
+                transition-duration: 1200ms;
+            }
+            #active-box {
+                left: 27.5%;
+                height: 75vh;
+                width: 45%;
+                z-index: 50;
+                transition-delay: 200ms;
+                transition-duration: 1200ms;
+            }
+            #box-three {
+                left: 60%;
+                height: 60vh;
+                width: 30%;
+                z-index: 49;
+                transition-delay: 100ms;
+                transition-duration: 1200ms;
+            }
+            #box-four {
+                left: 78.5%;
+                height: 40vh;
+                width: 20%;
+                z-index: 48;
+                transition-duration: 1200ms;
+            }
+            #hidden-box {
+                left: 150%;
+                height: 30vh;
+                width: 13%;
+                z-index: 47;
+                scale: 0;
+                transition-duration: 1200ms;
+            }
+            #box-zero svg, #box-four svg {
+                width: 0.75vh;
+                height: 0.75vh;
+                transition-duration: inherit;
+            }
+            #box-one svg, #box-three svg {
+                width: 2vh;
+                height: 2vh;
+                transition-duration: inherit;
+            }
+            #active-box svg {
+                width: 4vh;
+                height: 4vh;
+                transition-duration: inherit;
+            }
+            #box-zero span, #box-four span {
+                font-size: 0.65vh;
+                letter-spacing: 0.05vh;
+                transition-duration: inherit;
+            }
+            #box-one span, #box-three span {
+                font-size: 1.85vh;
+                letter-spacing: 0.1vh;
+                transition-duration: inherit;
+            }
+            #active-box span {
+                font-size: 3.5vh;
+                letter-spacing: 0.2vh;
+                transition-duration: inherit;
+            }
+            #box-zero div:nth-child(2), #box-four div:nth-child(2) {
+                padding-bottom: 0.1vh;
+                width: 70%;
+            }
+            #box-one div:nth-child(2), #box-three div:nth-child(2) {
+                padding-bottom: 0.2vh;
+                width: 70%;
+            }
+            #active-box div:nth-child(2) {
+                padding-bottom: 0.3vh;
+                width: 80%;
+            }
+            #box-zero a:hover div:nth-child(2),#box-four a:hover div:nth-child(2) {
+                transform: translateX(6vh);
+            }
+            #box-one a:hover div:nth-child(2), #box-three a:hover div:nth-child(2) {
+                transform: translateX(8vh);
+            }
+            #active-box a:hover div:nth-child(2) {
+                transform: translateX(10vh);
+            }
+        </style>
     </head>
     <body>
         <div class="Head_Container">
@@ -407,4 +1108,206 @@
             </div>
          </div>
     </body>
+    <script>
+        // Variables Closet
+        // Global Variables
+        var i = 0, j = 0;
+        var newIndex, previous, prevPrev, next, nextNext, hidden;
+        var Scroller;
+
+        var Cards = document.getElementsByClassName("Article_Styles");
+        var Auto_Cards = document.getElementsByClassName("Button");
+        var Boxes = document.getElementsByClassName("Box_Styles");
+        var Tracker = document.getElementsByClassName("Select_Button");
+        var Nav_Option = document.getElementsByClassName("Nav_Option");
+        var Nav_Menu = document.getElementsByClassName("Nav_Menu_Keeper");
+        var Nav_Scroll = document.getElementsByClassName("Nav_Menu");
+
+        var Top_Bar = document.querySelector('.Top_Bar_Navigator');
+
+        var len = Cards.length;
+        var wid = Boxes.length;
+
+        // Initialize Navigational Menu IDs
+        previous = 18;
+        for(i=0; i<Nav_Menu.length; i++) {
+            newIndex = previous + 10;
+
+            Nav_Menu[i].id = "menu-" + i;
+            Nav_Option[i+1].id = "menu-" + i;
+
+            if(i == 4) {
+                Nav_Menu[i].style.left = "60.5%";
+            }
+            else {
+                Nav_Menu[i].style.left = previous + "%";
+            }
+
+            previous = newIndex;
+        }
+
+        // Navigational Menu
+        document.querySelectorAll('.Nav_Option').forEach (option => {
+            // When top bar menu is hovered, get access to the target
+            option.addEventListener('mouseover', function() {
+                for(i=0; i<Nav_Menu.length; i++) {
+                    newIndex = parseInt(option.id.replace('menu-', ''));
+
+                    if(newIndex == i) {
+                        Nav_Menu[i].classList.add("Nav_Menu_Display");
+                        Nav_Scroll[i].scrollTop = 0;
+                    }
+                    else {
+                        Nav_Menu[i].classList.remove("Nav_Menu_Display");
+                    }
+                }
+            });
+            // When the cursor leaves the container, Remove the overlay
+            option.addEventListener('mouseleave', function() {
+                for(i=0; i<Nav_Menu.length; i++) {
+                    Nav_Menu[i].classList.remove("Nav_Menu_Display");
+                }
+            });
+        });
+        document.querySelectorAll('.Nav_Menu_Keeper').forEach (menu => {
+            // While the cursor is inside the container; Keep overlay active
+            menu.addEventListener('mouseenter', function() {
+                menu.classList.add("Nav_Menu_Display");
+            });
+            // When the cursor leaves the overlay container; Remove the overlay
+            menu.addEventListener('mouseleave', function() {
+                menu.classList.remove("Nav_Menu_Display");
+
+                setTimeout(function() {
+                    menu.style.display = "none";
+                }, 100);
+                setTimeout(function() {
+                    menu.style.display = "block";
+                }, 300);
+            });
+        });
+
+        // Top Bar Navigational Menu Appearance
+        previous = 0;
+        document.addEventListener("scroll", function() {
+            newIndex = document.body.scrollTop;
+
+            if (newIndex > previous && newIndex > 200) {
+                Top_Bar.style.top = "-20%";
+            }
+            else {
+                Top_Bar.style.top = "0";
+            }
+
+            previous = newIndex;
+        });
+
+        // Automated Spinner
+        // Initialize
+        Scroller = setInterval(() => Spin('next'), 5000);
+
+        // Get if window is active or not
+        window.onfocus = function() {
+            Scroller = setInterval(() => Spin('next'), 5000);
+        }
+        window.onblur = function() {
+            clearInterval(Scroller);
+        };
+
+        // Image Carousel
+        function Spin(action) {
+            // Ghost Clicker
+            if(action == 'next') {
+                Auto_Cards[1].style.opacity = "0.75";
+            }
+            resetInterval();
+            handleCarousel(Cards, len, action);
+        }
+
+        // Year-based selection and Image Carousel Reuse
+        function Spin2(action) {
+            handleCarousel(Boxes, wid, action, Tracker);
+        }
+
+        // Helper function for Carousel Movement
+        function handleCarousel(items, size, action, tracker = null) {
+            for(i = 0; i < size; i++) {
+                if (items[i].id === (items === Cards ? "active" : "active-box")) {
+                    if (action == 'prev') {
+                        newIndex = (i - 1 + size) % size;
+                    }
+                    else if (action == 'next') {
+                        newIndex = (i + 1) % size;
+
+                        // Ghost Clicker
+                        setTimeout(function() {
+                            Auto_Cards[1].style.opacity = "0.25";
+                            Auto_Cards[1].addEventListener("mouseover", function(){
+                                Auto_Cards[1].style.opacity = "1";
+                            });
+                            Auto_Cards[1].addEventListener("mouseleave", function(){
+                                Auto_Cards[1].style.opacity = "0.25";
+                            });
+                        }, 200);
+                    }
+                    else if (action.startsWith("twenty-")) {
+                        newIndex = parseInt(action.replace("twenty-", ""));
+                    }
+
+                    previous = (newIndex - 1 + size) % size;
+                    next = (newIndex + 1) % size;
+                    nextNext = (next + 1) % size;
+
+                    items[newIndex].id = items === Cards ? "active" : "active-box";
+                    items[previous].id = items === Cards ? "card-zero" : "box-one";
+                    if (items !== Cards) {
+                        prevPrev = (previous - 1 + size) % size;
+                        items[prevPrev].id = "box-zero";
+                    }
+                    items[next].id = items === Cards ? "card-two" : "box-three";
+                    items[nextNext].id = items === Cards ? "card-three" : "box-four";
+
+                    // Hidden Boxes for Spin2
+                    if (items !== Cards) {
+                        for(j = 1; j < size - 4; j++) {
+                            hidden = (nextNext + j) % size;
+                            items[hidden].id = "hidden-box";
+                        }
+                        // Active Year Tracker
+                        tracker[i].id = "";
+                        tracker[newIndex].id = "selected";
+                    }
+                    
+                    break;
+                }
+            }
+        }
+
+        // Reset Scroller Interval
+        function resetInterval() {
+            clearInterval(Scroller);
+            Scroller = setInterval(() => Spin('next'), 5000);
+        }
+
+        // Miscellaneous
+        var thisWindow = document.getElementsByClassName("window");
+
+        // Back-to-Top Button Appearance
+        // document.addEventListener("scroll", function() {
+        //     document.getElementById("appear").style.opacity = document.body.scrollTop > 1500 ? "1" : "0";
+        // });
+
+        // Menu Scroll Overflow Reset
+        function backToTop() {
+            document.body.scrollTop = 0;
+        }
+
+        function JumpTo(window) {
+            for(i = 0; i < thisWindow.length; i++) {
+                if(window == thisWindow[i].id) {
+                    thisWindow[i].scrollIntoView();
+                }
+            }
+        }
+    </script>
 </html>
