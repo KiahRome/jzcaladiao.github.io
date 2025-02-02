@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.10/dist/cdn.min.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href="../Assets/Poppins-styles.css" rel="stylesheet">
+
+        <style>
+            label {
+                cursor: pointer;
+            }
+            .scroller {
+                &::-webkit-scrollbar {
+                    width: 25px;
+                }
+                &::-webkit-scrollbar-track {
+                    box-shadow: inset 0 0 5px grey;
+                }
+                &::-webkit-scrollbar-thumb {
+                    background: rgb(85, 39, 255);
+                }
+                &::-webkit-scrollbar-thumb:hover {
+                    background: rgb(0, 34, 100);
+                }
+            }
+        </style>
+    </head>
+    <body class="poppins-regular selection:bg-indigo-700 selection:text-stone-100 text-xl min-h-screen overflow-x-hidden">
+        <div class="pl-12 pt-20 space-y-8">
+            <h1 class="text-center poppins-semibold pr-6 text-4xl">Notifications</h1>
+            <div class="flex flex-row justify-between text-blue-700 pr-12 poppins-semibold pt-8">
+                <label>
+                    <input type="radio" name="profile-sections" checked class="peer hidden"/>
+                    <p class="peer-checked:bg-indigo-700 duration-200 p-6 px-16 rounded-xl peer-checked:text-white">
+                        <span>All</span>
+                    </p>
+                    <!-- Display Recipe -->
+                    <div class="peer-checked"></div>
+                </label>
+                <label>
+                    <input type="radio" name="profile-sections" class="peer hidden"/>
+                    <p class="peer-checked:bg-indigo-700 duration-200 p-6 px-16 rounded-xl peer-checked:text-white">
+                        <span>Read</span>
+                    </p>
+                    <!-- Display Videos -->
+                    <div class="peer-checked"></div>
+                </label>
+                <label>
+                    <input type="radio" name="profile-sections" class="peer hidden"/>
+                    <p class="peer-checked:bg-indigo-700 duration-200 p-6 px-16 rounded-xl peer-checked:text-white">
+                        <span>Unread</span>
+                    </p>
+                    <!-- Display Tags -->
+                    <div class="peer-checked"></div>
+                </label>
+            </div>
+            <div style="max-height: 65vh;" class="space-y-8 overflow-y-auto scroller pb-20">
+                <div class="space-y-5">
+                    <h3 class="text-center poppins-semibold text-2xl">Today</h3>
+                    <div class="bg-stone-100 rounded-2xl p-4 px-6 flex flex-row justify-between">
+                        <div class="space-y-3">
+                            <p class="poppins-semibold text-2xl">New Recipe Alert!</p>
+                            <p class="text-stone-500">Lorem Ipsum tempor incididunt ut labore et dolore,in voluptate velit esse cillum</p>
+                            <p class="text-stone-400">10 mins ago</p>
+                        </div>
+                        <div class="relative p-0.5">
+                            <div style="background-color: #FFE1B3;" class="rounded-2xl p-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" viewBox="0 0 24 24" fill="none" webcrx="">
+                                    <path opacity="0.4" d="M20.5 10.19H17.61C15.24 10.19 13.31 8.26 13.31 5.89V3C13.31 2.45 12.86 2 12.31 2H8.07C4.99 2 2.5 4 2.5 7.57V16.43C2.5 20 4.99 22 8.07 22H15.93C19.01 22 21.5 20 21.5 16.43V11.19C21.5 10.64 21.05 10.19 20.5 10.19Z" fill="#FF9C00"/>
+                                    <path d="M15.7997 2.20999C15.3897 1.79999 14.6797 2.07999 14.6797 2.64999V6.13999C14.6797 7.59999 15.9197 8.80999 17.4297 8.80999C18.3797 8.81999 19.6997 8.81999 20.8297 8.81999C21.3997 8.81999 21.6997 8.14999 21.2997 7.74999C19.8597 6.29999 17.2797 3.68999 15.7997 2.20999Z" fill="#FF9C00"/>
+                                    <path d="M13.5 13.75H7.5C7.09 13.75 6.75 13.41 6.75 13C6.75 12.59 7.09 12.25 7.5 12.25H13.5C13.91 12.25 14.25 12.59 14.25 13C14.25 13.41 13.91 13.75 13.5 13.75Z" fill="#FF9C00"/>
+                                    <path d="M11.5 17.75H7.5C7.09 17.75 6.75 17.41 6.75 17C6.75 16.59 7.09 16.25 7.5 16.25H11.5C11.91 16.25 12.25 16.59 12.25 17C12.25 17.41 11.91 17.75 11.5 17.75Z" fill="#FF9C00"/>
+                                </svg>
+                            </div>
+                            <div class="bg-rose-400 rounded-full p-1.5 absolute top-0 right-0"></div>
+                        </div>
+                    </div>
+                    <div class="bg-stone-100 rounded-2xl p-4 px-6 flex flex-row justify-between">
+                        <div class="space-y-3">
+                            <p class="poppins-semibold text-2xl">New Recipe Alert!</p>
+                            <p class="text-stone-500">Lorem Ipsum tempor incididunt ut labore et dolore,in voluptate velit esse cillum</p>
+                            <p class="text-stone-400">30 mins ago</p>
+                        </div>
+                        <div class="relative p-0.5">
+                            <div style="background-color: #FFE1B3;" class="rounded-2xl p-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" viewBox="0 0 24 24" fill="none" webcrx="">
+                                    <path opacity="0.4" d="M20.5 10.19H17.61C15.24 10.19 13.31 8.26 13.31 5.89V3C13.31 2.45 12.86 2 12.31 2H8.07C4.99 2 2.5 4 2.5 7.57V16.43C2.5 20 4.99 22 8.07 22H15.93C19.01 22 21.5 20 21.5 16.43V11.19C21.5 10.64 21.05 10.19 20.5 10.19Z" fill="#FF9C00"/>
+                                    <path d="M15.7997 2.20999C15.3897 1.79999 14.6797 2.07999 14.6797 2.64999V6.13999C14.6797 7.59999 15.9197 8.80999 17.4297 8.80999C18.3797 8.81999 19.6997 8.81999 20.8297 8.81999C21.3997 8.81999 21.6997 8.14999 21.2997 7.74999C19.8597 6.29999 17.2797 3.68999 15.7997 2.20999Z" fill="#FF9C00"/>
+                                    <path d="M13.5 13.75H7.5C7.09 13.75 6.75 13.41 6.75 13C6.75 12.59 7.09 12.25 7.5 12.25H13.5C13.91 12.25 14.25 12.59 14.25 13C14.25 13.41 13.91 13.75 13.5 13.75Z" fill="#FF9C00"/>
+                                    <path d="M11.5 17.75H7.5C7.09 17.75 6.75 17.41 6.75 17C6.75 16.59 7.09 16.25 7.5 16.25H11.5C11.91 16.25 12.25 16.59 12.25 17C12.25 17.41 11.91 17.75 11.5 17.75Z" fill="#FF9C00"/>
+                                </svg>
+                            </div>
+                            <!-- <div class="bg-rose-400 rounded-full p-1.5 absolute top-0 right-0"></div> -->
+                        </div>
+                    </div>
+                    <div class="bg-stone-100 rounded-2xl p-4 px-6 flex flex-row justify-between">
+                        <div class="space-y-3">
+                            <p class="poppins-semibold text-2xl">Save Recipe Alert!</p>
+                            <p class="text-stone-500">Lorem Ipsum tempor incididunt ut labore et dolore,in voluptate velit esse cillum</p>
+                            <p class="text-stone-400">33 mins ago</p>
+                        </div>
+                        <div class="relative p-0.5">
+                            <div style="background-color: #FFE1B3;" class="rounded-2xl p-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 24 24" fill="none" webcrx="">
+                                    <path opacity="0.4" d="M20.5 10.19H17.61C15.24 10.19 13.31 8.26 13.31 5.89V3C13.31 2.45 12.86 2 12.31 2H8.07C4.99 2 2.5 4 2.5 7.57V16.43C2.5 20 4.99 22 8.07 22H15.93C19.01 22 21.5 20 21.5 16.43V11.19C21.5 10.64 21.05 10.19 20.5 10.19Z" fill="#FF9C00"/>
+                                    <path d="M15.7997 2.20999C15.3897 1.79999 14.6797 2.07999 14.6797 2.64999V6.13999C14.6797 7.59999 15.9197 8.80999 17.4297 8.80999C18.3797 8.81999 19.6997 8.81999 20.8297 8.81999C21.3997 8.81999 21.6997 8.14999 21.2997 7.74999C19.8597 6.29999 17.2797 3.68999 15.7997 2.20999Z" fill="#FF9C00"/>
+                                    <path d="M11.1592 12.7299C10.5692 12.5399 9.93922 12.6499 9.49922 12.9999C9.03922 12.6499 8.42922 12.5399 7.84922 12.7299C6.57922 13.1399 6.17922 14.5899 6.52922 15.6999C7.06922 17.3999 8.85922 18.2699 9.50922 18.2699C10.1392 18.2699 11.9592 17.3699 12.4892 15.6999C12.8292 14.5899 12.4292 13.1399 11.1592 12.7299Z" fill="#FF9C00"/>
+                                </svg>
+                            </div>
+                            <div class="bg-rose-400 rounded-full p-1.5 absolute top-0 right-0"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-5">
+                    <h3 class="text-center poppins-semibold text-2xl">Yesterday</h3>
+                    <div class="bg-stone-100 rounded-2xl p-4 px-6 flex flex-row justify-between">
+                        <div class="space-y-3">
+                            <p class="poppins-semibold text-2xl">New Recipe Alert!</p>
+                            <p class="text-stone-500">Lorem Ipsum tempor incididunt ut labore et dolore,in voluptate velit esse cillum</p>
+                            <p class="text-stone-400">10 mins ago</p>
+                        </div>
+                        <div class="relative p-0.5">
+                            <div style="background-color: #FFE1B3;" class="rounded-2xl p-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" viewBox="0 0 24 24" fill="none" webcrx="">
+                                    <path opacity="0.4" d="M20.5 10.19H17.61C15.24 10.19 13.31 8.26 13.31 5.89V3C13.31 2.45 12.86 2 12.31 2H8.07C4.99 2 2.5 4 2.5 7.57V16.43C2.5 20 4.99 22 8.07 22H15.93C19.01 22 21.5 20 21.5 16.43V11.19C21.5 10.64 21.05 10.19 20.5 10.19Z" fill="#FF9C00"/>
+                                    <path d="M15.7997 2.20999C15.3897 1.79999 14.6797 2.07999 14.6797 2.64999V6.13999C14.6797 7.59999 15.9197 8.80999 17.4297 8.80999C18.3797 8.81999 19.6997 8.81999 20.8297 8.81999C21.3997 8.81999 21.6997 8.14999 21.2997 7.74999C19.8597 6.29999 17.2797 3.68999 15.7997 2.20999Z" fill="#FF9C00"/>
+                                    <path d="M13.5 13.75H7.5C7.09 13.75 6.75 13.41 6.75 13C6.75 12.59 7.09 12.25 7.5 12.25H13.5C13.91 12.25 14.25 12.59 14.25 13C14.25 13.41 13.91 13.75 13.5 13.75Z" fill="#FF9C00"/>
+                                    <path d="M11.5 17.75H7.5C7.09 17.75 6.75 17.41 6.75 17C6.75 16.59 7.09 16.25 7.5 16.25H11.5C11.91 16.25 12.25 16.59 12.25 17C12.25 17.41 11.91 17.75 11.5 17.75Z" fill="#FF9C00"/>
+                                </svg>
+                            </div>
+                            <div class="bg-rose-400 rounded-full p-1.5 absolute top-0 right-0"></div>
+                        </div>
+                    </div>
+                    <div class="bg-stone-100 rounded-2xl p-4 px-6 flex flex-row justify-between">
+                        <div class="space-y-3">
+                            <p class="poppins-semibold text-2xl">Save Recipe Alert!</p>
+                            <p class="text-stone-500">Lorem Ipsum tempor incididunt ut labore et dolore,in voluptate velit esse cillum</p>
+                            <p class="text-stone-400">33 mins ago</p>
+                        </div>
+                        <div class="relative p-0.5">
+                            <div style="background-color: #FFE1B3;" class="rounded-2xl p-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 24 24" fill="none" webcrx="">
+                                    <path opacity="0.4" d="M20.5 10.19H17.61C15.24 10.19 13.31 8.26 13.31 5.89V3C13.31 2.45 12.86 2 12.31 2H8.07C4.99 2 2.5 4 2.5 7.57V16.43C2.5 20 4.99 22 8.07 22H15.93C19.01 22 21.5 20 21.5 16.43V11.19C21.5 10.64 21.05 10.19 20.5 10.19Z" fill="#FF9C00"/>
+                                    <path d="M15.7997 2.20999C15.3897 1.79999 14.6797 2.07999 14.6797 2.64999V6.13999C14.6797 7.59999 15.9197 8.80999 17.4297 8.80999C18.3797 8.81999 19.6997 8.81999 20.8297 8.81999C21.3997 8.81999 21.6997 8.14999 21.2997 7.74999C19.8597 6.29999 17.2797 3.68999 15.7997 2.20999Z" fill="#FF9C00"/>
+                                    <path d="M11.1592 12.7299C10.5692 12.5399 9.93922 12.6499 9.49922 12.9999C9.03922 12.6499 8.42922 12.5399 7.84922 12.7299C6.57922 13.1399 6.17922 14.5899 6.52922 15.6999C7.06922 17.3999 8.85922 18.2699 9.50922 18.2699C10.1392 18.2699 11.9592 17.3699 12.4892 15.6999C12.8292 14.5899 12.4292 13.1399 11.1592 12.7299Z" fill="#FF9C00"/>
+                                </svg>
+                            </div>
+                            <div class="bg-rose-400 rounded-full p-1.5 absolute top-0 right-0"></div>
+                        </div>
+                    </div>
+                    <div class="bg-stone-100 rounded-2xl p-4 px-6 flex flex-row justify-between">
+                        <div class="space-y-3">
+                            <p class="poppins-semibold text-2xl">New Recipe Alert!</p>
+                            <p class="text-stone-500">Lorem Ipsum tempor incididunt ut labore et dolore,in voluptate velit esse cillum</p>
+                            <p class="text-stone-400">10 mins ago</p>
+                        </div>
+                        <div class="relative p-0.5">
+                            <div style="background-color: #FFE1B3;" class="rounded-2xl p-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" viewBox="0 0 24 24" fill="none" webcrx="">
+                                    <path opacity="0.4" d="M20.5 10.19H17.61C15.24 10.19 13.31 8.26 13.31 5.89V3C13.31 2.45 12.86 2 12.31 2H8.07C4.99 2 2.5 4 2.5 7.57V16.43C2.5 20 4.99 22 8.07 22H15.93C19.01 22 21.5 20 21.5 16.43V11.19C21.5 10.64 21.05 10.19 20.5 10.19Z" fill="#FF9C00"/>
+                                    <path d="M15.7997 2.20999C15.3897 1.79999 14.6797 2.07999 14.6797 2.64999V6.13999C14.6797 7.59999 15.9197 8.80999 17.4297 8.80999C18.3797 8.81999 19.6997 8.81999 20.8297 8.81999C21.3997 8.81999 21.6997 8.14999 21.2997 7.74999C19.8597 6.29999 17.2797 3.68999 15.7997 2.20999Z" fill="#FF9C00"/>
+                                    <path d="M13.5 13.75H7.5C7.09 13.75 6.75 13.41 6.75 13C6.75 12.59 7.09 12.25 7.5 12.25H13.5C13.91 12.25 14.25 12.59 14.25 13C14.25 13.41 13.91 13.75 13.5 13.75Z" fill="#FF9C00"/>
+                                    <path d="M11.5 17.75H7.5C7.09 17.75 6.75 17.41 6.75 17C6.75 16.59 7.09 16.25 7.5 16.25H11.5C11.91 16.25 12.25 16.59 12.25 17C12.25 17.41 11.91 17.75 11.5 17.75Z" fill="#FF9C00"/>
+                                </svg>
+                            </div>
+                            <div class="bg-rose-400 rounded-full p-1.5 absolute top-0 right-0"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fixed w-full bottom-0">
+            <div class="relative flex justify-center">
+                <!-- Floating Button -->
+                <div class="flex justify-center text-white absolute top-0">
+                    <div class="border-b-4 border-stone-100 pb-4 px-[50%] lg:px-[75%] xl:px-[100%] 2xl:px-[200%] rounded-full">
+                        <button class="rounded-full bg-indigo-700 p-6 hover:text-indigo-100 duration-500 active:text-indigo-100 hover:shadow-md hover:shadow-indigo-900 active:ring-4 active:ring-indigo-900 active:duration-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12" viewBox="0 0 24 24" fill="none" webcrx="">
+                                <path d="M6 12H18M12 6V18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Footer Navigation Bar -->
+                <div class="flex flex-row justify-between w-full pb-12 mt-6 text-stone-300">
+                    <div class="flex flex-row justify-evenly border-t-4 bg-white rounded-r-full border-stone-100 w-full pt-6 mr-[10%]">
+                        <!-- Home -->
+                        <button class="px-8 p-4 rounded-lg active:bg-blue-100 active:text-indigo-700" onclick="location.href='homepage.html'">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14" viewBox="0 0 24 24" fill="none" webcrx="">
+                                <path d="M12 15L12 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M22 12.2039V13.725C22 17.6258 22 19.5763 20.8284 20.7881C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.7881C2 19.5763 2 17.6258 2 13.725V12.2039C2 9.91549 2 8.77128 2.5192 7.82274C3.0384 6.87421 3.98695 6.28551 5.88403 5.10813L7.88403 3.86687C9.88939 2.62229 10.8921 2 12 2C13.1079 2 14.1106 2.62229 16.116 3.86687L18.116 5.10812C20.0131 6.28551 20.9616 6.87421 21.4808 7.82274" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+
+                        <!-- Bookmarks -->
+                        <button onclick="location.href='bookmark.html'" class="px-8 p-4 rounded-lg active:bg-blue-100 active:text-indigo-700">
+                            <svg id="bookmark-1" xmlns="http://www.w3.org/2000/svg" class="w-14 h-14" viewBox="0 0 24 24" fill="none" webcrx="">
+                                <path d="M3 11.0975V16.0909C3 19.1875 3 20.7358 3.73411 21.4123C4.08422 21.735 4.52615 21.9377 4.99692 21.9915C5.98402 22.1045 7.13675 21.0849 9.44216 19.0458C10.4612 18.1445 10.9708 17.6938 11.5603 17.5751C11.8506 17.5166 12.1494 17.5166 12.4397 17.5751C13.0292 17.6938 13.5388 18.1445 14.5578 19.0458C16.8633 21.0849 18.016 22.1045 19.0031 21.9915C19.4739 21.9377 19.9158 21.735 20.2659 21.4123C21 20.7358 21 19.1875 21 16.0909V11.0975C21 6.80891 21 4.6646 19.682 3.3323C18.364 2 16.2426 2 12 2C7.75736 2 5.63604 2 4.31802 3.3323C3.5108 4.14827 3.19796 5.26881 3.07672 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M15 6H9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="flex flex-row justify-evenly w-full ml-[10%] border-t-4 pt-6 border-stone-100 rounded-l-full">
+                        <!-- Notifications -->
+                        <button class="px-8 p-4 rounded-lg text-indigo-700 active:bg-blue-100 active:text-indigo-900">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14" viewBox="0 0 24 24" fill="none" webcrx="">
+                                <path d="M12 6V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M7.5 19C8.15503 20.7478 9.92246 22 12 22C12.2445 22 12.4847 21.9827 12.7192 21.9492M16.5 19C16.2329 19.7126 15.781 20.3428 15.1985 20.8393" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M9.10745 2.67414C9.98414 2.24187 10.9649 2 12 2C15.7274 2 18.7491 5.13623 18.7491 9.00497V9.70957C18.7491 10.5552 18.9903 11.3818 19.4422 12.0854L20.5496 13.8095C21.5612 15.3843 20.789 17.5249 19.0296 18.0229C14.4273 19.3257 9.57274 19.3257 4.97036 18.0229C3.21105 17.5249 2.43882 15.3843 3.45036 13.8095L4.5578 12.0854C5.00972 11.3818 5.25087 10.5552 5.25087 9.70957V9.00497C5.25087 7.93058 5.48391 6.91269 5.90039 6.00277" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+
+                        <!-- Profile -->
+                        <button onclick="location.href='profile.html'" class="px-8 p-4 rounded-lg active:bg-blue-100 active:text-indigo-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14" viewBox="0 0 24 24" fill="none" webcrx="">
+                                <circle cx="12" cy="6" r="4" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M19.9975 18C20 17.8358 20 17.669 20 17.5C20 15.0147 16.4183 13 12 13C7.58172 13 4 15.0147 4 17.5C4 19.9853 4 22 12 22C14.231 22 15.8398 21.8433 17 21.5634" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

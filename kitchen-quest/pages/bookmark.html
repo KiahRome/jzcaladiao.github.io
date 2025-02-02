@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.10/dist/cdn.min.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href="../Assets/Poppins-styles.css" rel="stylesheet">
+
+        <style>
+            label {
+                cursor: pointer;
+            }
+            .scroller {
+                &::-webkit-scrollbar {
+                    width: 25px;
+                }
+                &::-webkit-scrollbar-track {
+                    box-shadow: inset 0 0 5px grey;
+                }
+                &::-webkit-scrollbar-thumb {
+                    background: rgb(85, 39, 255);
+                }
+                &::-webkit-scrollbar-thumb:hover {
+                    background: rgb(0, 34, 100);
+                }
+            }
+        </style>
+    </head>
+    <body class="poppins-regular selection:bg-indigo-700 selection:text-stone-100 text-xl min-h-screen overflow-x-hidden">
+        <div class="px-12 py-20 space-y-8">
+            <h1 class="poppins-semibold text-4xl text-center">Saved recipes</h1>
+            <div class="text-white pt-6 pb-40 space-y-20">
+                <div class="relative" style="height: 350px;">
+                    <div class="flex justify-center rounded-2xl absolute">
+                        <div class="w-full h-96 overflow-hidden rounded-2xl" style="box-shadow: inset 0 -150px 50px 10px rgba(0, 0, 0);">
+                            <div class="object-cover object-center w-full">
+                                <img class="opacity-80" style="margin: -100px 0 0 0px; height: 600px;" src="../Assets/main food.jpg"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute top-0 right-0 p-8">
+                        <div style="background-color: #FFE1B3" class="flex flex-row space-x-3 px-4 p-2 rounded-2xl">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="#FFAD30" webcrx="">
+                                <path d="M11.2691 4.41115C11.5006 3.89177 11.6164 3.63208 11.7776 3.55211C11.9176 3.48263 12.082 3.48263 12.222 3.55211C12.3832 3.63208 12.499 3.89177 12.7305 4.41115L14.5745 8.54808C14.643 8.70162 14.6772 8.77839 14.7302 8.83718C14.777 8.8892 14.8343 8.93081 14.8982 8.95929C14.9705 8.99149 15.0541 9.00031 15.2213 9.01795L19.7256 9.49336C20.2911 9.55304 20.5738 9.58288 20.6997 9.71147C20.809 9.82316 20.8598 9.97956 20.837 10.1342C20.8108 10.3122 20.5996 10.5025 20.1772 10.8832L16.8125 13.9154C16.6877 14.0279 16.6252 14.0842 16.5857 14.1527C16.5507 14.2134 16.5288 14.2807 16.5215 14.3503C16.5132 14.429 16.5306 14.5112 16.5655 14.6757L17.5053 19.1064C17.6233 19.6627 17.6823 19.9408 17.5989 20.1002C17.5264 20.2388 17.3934 20.3354 17.2393 20.3615C17.0619 20.3915 16.8156 20.2495 16.323 19.9654L12.3995 17.7024C12.2539 17.6184 12.1811 17.5765 12.1037 17.56C12.0352 17.5455 11.9644 17.5455 11.8959 17.56C11.8185 17.5765 11.7457 17.6184 11.6001 17.7024L7.67662 19.9654C7.18404 20.2495 6.93775 20.3915 6.76034 20.3615C6.60623 20.3354 6.47319 20.2388 6.40075 20.1002C6.31736 19.9408 6.37635 19.6627 6.49434 19.1064L7.4341 14.6757C7.46898 14.5112 7.48642 14.429 7.47814 14.3503C7.47081 14.2807 7.44894 14.2134 7.41394 14.1527C7.37439 14.0842 7.31195 14.0279 7.18708 13.9154L3.82246 10.8832C3.40005 10.5025 3.18884 10.3122 3.16258 10.1342C3.13978 9.97956 3.19059 9.82316 3.29993 9.71147C3.42581 9.58288 3.70856 9.55304 4.27406 9.49336L8.77835 9.01795C8.94553 9.00031 9.02911 8.99149 9.10139 8.95929C9.16534 8.93081 9.2226 8.8892 9.26946 8.83718C9.32241 8.77839 9.35663 8.70162 9.42508 8.54808L11.2691 4.41115Z" stroke="#FFAD30" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <p class="text-black">4.0</p>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-0 px-8 w-full">
+                        <div class="space-y-8">
+                            <h3 class="poppins-semibold text-3xl">Ratatouille</h3>
+                            <div class="flex flex-row w-full justify-between items-center">
+                                <p>By Chef Lauren</p>
+                                <div class="flex flex-row justify-between items-center space-x-4">
+                                    <svg fill="currentColor" class="w-16 h-16" viewBox="0 -0.08 20 20" data-name="Capa 1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="0.24">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <path d="M10,3.49a7.08,7.08,0,1,0,7.07,7.07A7.08,7.08,0,0,0,10,3.49Zm0,13.45a6.38,6.38,0,1,1,6.37-6.38A6.38,6.38,0,0,1,10,16.94Z"></path>
+                                            <path d="M15.22,10.36a.31.31,0,0,0-.31.31.31.31,0,0,0,.62,0A.31.31,0,0,0,15.22,10.36Z"></path>
+                                            <path d="M4.78,10.36a.31.31,0,0,0-.31.31.31.31,0,0,0,.62,0A.31.31,0,0,0,4.78,10.36Z"></path>
+                                            <circle cx="10" cy="15.72" r="0.31"></circle>
+                                            <path d="M9.06,2.92h1.86a.36.36,0,0,0,.35-.36.35.35,0,0,0-.35-.34H9.05a.35.35,0,0,0-.35.35A.36.36,0,0,0,9.06,2.92Z"></path>
+                                            <path d="M10,5.24a.36.36,0,0,0-.36.35v5.08A.35.35,0,0,0,10,11a.34.34,0,0,0,.35-.35V5.59A.35.35,0,0,0,10,5.24Z"></path>
+                                        </g>
+                                    </svg>
+                                    <p>45 min</p>
+                                    <button title="Unsave recipe" id="marked-1" type="button" class="text-indigo-700 rounded-full bg-white p-4" onclick="Bookmark1()">
+                                        <svg id="bookmark-1" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="none" webcrx="">
+                                            <path d="M3 11.0975V16.0909C3 19.1875 3 20.7358 3.73411 21.4123C4.08422 21.735 4.52615 21.9377 4.99692 21.9915C5.98402 22.1045 7.13675 21.0849 9.44216 19.0458C10.4612 18.1445 10.9708 17.6938 11.5603 17.5751C11.8506 17.5166 12.1494 17.5166 12.4397 17.5751C13.0292 17.6938 13.5388 18.1445 14.5578 19.0458C16.8633 21.0849 18.016 22.1045 19.0031 21.9915C19.4739 21.9377 19.9158 21.735 20.2659 21.4123C21 20.7358 21 19.1875 21 16.0909V11.0975C21 6.80891 21 4.6646 19.682 3.3323C18.364 2 16.2426 2 12 2C7.75736 2 5.63604 2 4.31802 3.3323C3.5108 4.14827 3.19796 5.26881 3.07672 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                            <path d="M15 6H9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                        </svg>
+                                    </button>
+                                    <script>
+                                        let mark1 = document.getElementById("marked-1");
+                                        function Bookmark1() {
+                                            if(mark1.classList.contains("text-indigo-700")) {
+                                                mark1.classList.remove("text-indigo-700");
+                                                mark1.classList.add("text-stone-300");
+                                            } else {
+                                                mark1.classList.remove("text-stone-300");
+                                                mark1.classList.add("text-indigo-700");
+                                            }
+                                        };
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative" style="height: 350px;">
+                    <div class="flex justify-center rounded-2xl">
+                        <div class="absolute w-full h-96 overflow-hidden rounded-2xl" style="box-shadow: inset 0 -150px 50px 10px rgba(0, 0, 0);">
+                            <div class="object-cover object-center w-full">
+                                <img class="opacity-80" style="margin: -100px 0 0 0px; height: 600px;" src="../Assets/saved recipe 2.jpg"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute top-0 right-0 p-8">
+                        <div style="background-color: #FFE1B3" class="flex flex-row space-x-3 px-4 p-2 rounded-2xl">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="#FFAD30" webcrx="">
+                                <path d="M11.2691 4.41115C11.5006 3.89177 11.6164 3.63208 11.7776 3.55211C11.9176 3.48263 12.082 3.48263 12.222 3.55211C12.3832 3.63208 12.499 3.89177 12.7305 4.41115L14.5745 8.54808C14.643 8.70162 14.6772 8.77839 14.7302 8.83718C14.777 8.8892 14.8343 8.93081 14.8982 8.95929C14.9705 8.99149 15.0541 9.00031 15.2213 9.01795L19.7256 9.49336C20.2911 9.55304 20.5738 9.58288 20.6997 9.71147C20.809 9.82316 20.8598 9.97956 20.837 10.1342C20.8108 10.3122 20.5996 10.5025 20.1772 10.8832L16.8125 13.9154C16.6877 14.0279 16.6252 14.0842 16.5857 14.1527C16.5507 14.2134 16.5288 14.2807 16.5215 14.3503C16.5132 14.429 16.5306 14.5112 16.5655 14.6757L17.5053 19.1064C17.6233 19.6627 17.6823 19.9408 17.5989 20.1002C17.5264 20.2388 17.3934 20.3354 17.2393 20.3615C17.0619 20.3915 16.8156 20.2495 16.323 19.9654L12.3995 17.7024C12.2539 17.6184 12.1811 17.5765 12.1037 17.56C12.0352 17.5455 11.9644 17.5455 11.8959 17.56C11.8185 17.5765 11.7457 17.6184 11.6001 17.7024L7.67662 19.9654C7.18404 20.2495 6.93775 20.3915 6.76034 20.3615C6.60623 20.3354 6.47319 20.2388 6.40075 20.1002C6.31736 19.9408 6.37635 19.6627 6.49434 19.1064L7.4341 14.6757C7.46898 14.5112 7.48642 14.429 7.47814 14.3503C7.47081 14.2807 7.44894 14.2134 7.41394 14.1527C7.37439 14.0842 7.31195 14.0279 7.18708 13.9154L3.82246 10.8832C3.40005 10.5025 3.18884 10.3122 3.16258 10.1342C3.13978 9.97956 3.19059 9.82316 3.29993 9.71147C3.42581 9.58288 3.70856 9.55304 4.27406 9.49336L8.77835 9.01795C8.94553 9.00031 9.02911 8.99149 9.10139 8.95929C9.16534 8.93081 9.2226 8.8892 9.26946 8.83718C9.32241 8.77839 9.35663 8.70162 9.42508 8.54808L11.2691 4.41115Z" stroke="#FFAD30" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <p class="text-black">4.0</p>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-0 px-8 w-full">
+                        <div class="space-y-8">
+                            <h3 class="poppins-semibold text-3xl">Grilled Pinoy Balut</h3>
+                            <div class="flex flex-row w-full justify-between items-center">
+                                <p>By Manny Evangelista</p>
+                                <div class="flex flex-row justify-between items-center space-x-4">
+                                    <svg fill="currentColor" class="w-16 h-16" viewBox="0 -0.08 20 20" data-name="Capa 1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="0.24">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <path d="M10,3.49a7.08,7.08,0,1,0,7.07,7.07A7.08,7.08,0,0,0,10,3.49Zm0,13.45a6.38,6.38,0,1,1,6.37-6.38A6.38,6.38,0,0,1,10,16.94Z"></path>
+                                            <path d="M15.22,10.36a.31.31,0,0,0-.31.31.31.31,0,0,0,.62,0A.31.31,0,0,0,15.22,10.36Z"></path>
+                                            <path d="M4.78,10.36a.31.31,0,0,0-.31.31.31.31,0,0,0,.62,0A.31.31,0,0,0,4.78,10.36Z"></path>
+                                            <circle cx="10" cy="15.72" r="0.31"></circle>
+                                            <path d="M9.06,2.92h1.86a.36.36,0,0,0,.35-.36.35.35,0,0,0-.35-.34H9.05a.35.35,0,0,0-.35.35A.36.36,0,0,0,9.06,2.92Z"></path>
+                                            <path d="M10,5.24a.36.36,0,0,0-.36.35v5.08A.35.35,0,0,0,10,11a.34.34,0,0,0,.35-.35V5.59A.35.35,0,0,0,10,5.24Z"></path>
+                                        </g>
+                                    </svg>
+                                    <p>20 min</p>
+                                    <button title="Unsave recipe" id="marked-2" type="button" class="text-indigo-700 rounded-full bg-white p-4" onclick="Bookmark2()">
+                                        <svg id="bookmark-2" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="none" webcrx="">
+                                            <path d="M3 11.0975V16.0909C3 19.1875 3 20.7358 3.73411 21.4123C4.08422 21.735 4.52615 21.9377 4.99692 21.9915C5.98402 22.1045 7.13675 21.0849 9.44216 19.0458C10.4612 18.1445 10.9708 17.6938 11.5603 17.5751C11.8506 17.5166 12.1494 17.5166 12.4397 17.5751C13.0292 17.6938 13.5388 18.1445 14.5578 19.0458C16.8633 21.0849 18.016 22.1045 19.0031 21.9915C19.4739 21.9377 19.9158 21.735 20.2659 21.4123C21 20.7358 21 19.1875 21 16.0909V11.0975C21 6.80891 21 4.6646 19.682 3.3323C18.364 2 16.2426 2 12 2C7.75736 2 5.63604 2 4.31802 3.3323C3.5108 4.14827 3.19796 5.26881 3.07672 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                            <path d="M15 6H9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                        </svg>
+                                    </button>
+                                    <script>
+                                        let mark2 = document.getElementById("marked-2");
+                                        function Bookmark2() {
+                                            if(mark2.classList.contains("text-indigo-700")) {
+                                                mark2.classList.remove("text-indigo-700");
+                                                mark2.classList.add("text-stone-300");
+                                            } else {
+                                                mark2.classList.remove("text-stone-300");
+                                                mark2.classList.add("text-indigo-700");
+                                            }
+                                        };
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative" style="height: 350px;">
+                    <div class="flex justify-center rounded-2xl">
+                        <div class="absolute w-full h-96 overflow-hidden rounded-2xl" style="box-shadow: inset 0 -150px 50px 10px rgba(0, 0, 0);">
+                            <div class="object-cover object-center w-full flex justify-center">
+                                <img class="opacity-80" style="margin: -200px 0 0 0px; height: 1000px;" src="../Assets/saved recipe 3 _ search food 2nd page 6.jpg"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute top-0 right-0 p-8">
+                        <div style="background-color: #FFE1B3" class="flex flex-row space-x-3 px-4 p-2 rounded-2xl">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="#FFAD30" webcrx="">
+                                <path d="M11.2691 4.41115C11.5006 3.89177 11.6164 3.63208 11.7776 3.55211C11.9176 3.48263 12.082 3.48263 12.222 3.55211C12.3832 3.63208 12.499 3.89177 12.7305 4.41115L14.5745 8.54808C14.643 8.70162 14.6772 8.77839 14.7302 8.83718C14.777 8.8892 14.8343 8.93081 14.8982 8.95929C14.9705 8.99149 15.0541 9.00031 15.2213 9.01795L19.7256 9.49336C20.2911 9.55304 20.5738 9.58288 20.6997 9.71147C20.809 9.82316 20.8598 9.97956 20.837 10.1342C20.8108 10.3122 20.5996 10.5025 20.1772 10.8832L16.8125 13.9154C16.6877 14.0279 16.6252 14.0842 16.5857 14.1527C16.5507 14.2134 16.5288 14.2807 16.5215 14.3503C16.5132 14.429 16.5306 14.5112 16.5655 14.6757L17.5053 19.1064C17.6233 19.6627 17.6823 19.9408 17.5989 20.1002C17.5264 20.2388 17.3934 20.3354 17.2393 20.3615C17.0619 20.3915 16.8156 20.2495 16.323 19.9654L12.3995 17.7024C12.2539 17.6184 12.1811 17.5765 12.1037 17.56C12.0352 17.5455 11.9644 17.5455 11.8959 17.56C11.8185 17.5765 11.7457 17.6184 11.6001 17.7024L7.67662 19.9654C7.18404 20.2495 6.93775 20.3915 6.76034 20.3615C6.60623 20.3354 6.47319 20.2388 6.40075 20.1002C6.31736 19.9408 6.37635 19.6627 6.49434 19.1064L7.4341 14.6757C7.46898 14.5112 7.48642 14.429 7.47814 14.3503C7.47081 14.2807 7.44894 14.2134 7.41394 14.1527C7.37439 14.0842 7.31195 14.0279 7.18708 13.9154L3.82246 10.8832C3.40005 10.5025 3.18884 10.3122 3.16258 10.1342C3.13978 9.97956 3.19059 9.82316 3.29993 9.71147C3.42581 9.58288 3.70856 9.55304 4.27406 9.49336L8.77835 9.01795C8.94553 9.00031 9.02911 8.99149 9.10139 8.95929C9.16534 8.93081 9.2226 8.8892 9.26946 8.83718C9.32241 8.77839 9.35663 8.70162 9.42508 8.54808L11.2691 4.41115Z" stroke="#FFAD30" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <p class="text-black">4.0</p>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-0 px-8 w-full">
+                        <div class="space-y-8">
+                            <h3 class="poppins-semibold text-3xl">Som Tum</h3>
+                            <div class="flex flex-row w-full justify-between items-center">
+                                <p>By Manij Limpatiyakorn</p>
+                                <div class="flex flex-row justify-between items-center space-x-4">
+                                    <svg fill="currentColor" class="w-16 h-16" viewBox="0 -0.08 20 20" data-name="Capa 1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="0.24">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <path d="M10,3.49a7.08,7.08,0,1,0,7.07,7.07A7.08,7.08,0,0,0,10,3.49Zm0,13.45a6.38,6.38,0,1,1,6.37-6.38A6.38,6.38,0,0,1,10,16.94Z"></path>
+                                            <path d="M15.22,10.36a.31.31,0,0,0-.31.31.31.31,0,0,0,.62,0A.31.31,0,0,0,15.22,10.36Z"></path>
+                                            <path d="M4.78,10.36a.31.31,0,0,0-.31.31.31.31,0,0,0,.62,0A.31.31,0,0,0,4.78,10.36Z"></path>
+                                            <circle cx="10" cy="15.72" r="0.31"></circle>
+                                            <path d="M9.06,2.92h1.86a.36.36,0,0,0,.35-.36.35.35,0,0,0-.35-.34H9.05a.35.35,0,0,0-.35.35A.36.36,0,0,0,9.06,2.92Z"></path>
+                                            <path d="M10,5.24a.36.36,0,0,0-.36.35v5.08A.35.35,0,0,0,10,11a.34.34,0,0,0,.35-.35V5.59A.35.35,0,0,0,10,5.24Z"></path>
+                                        </g>
+                                    </svg>
+                                    <p>20 min</p>
+                                    <button title="Unsave recipe" id="marked-3" type="button" class="text-indigo-700 rounded-full bg-white p-4" onclick="Bookmark3()">
+                                        <svg id="bookmark-3" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="none" webcrx="">
+                                            <path d="M3 11.0975V16.0909C3 19.1875 3 20.7358 3.73411 21.4123C4.08422 21.735 4.52615 21.9377 4.99692 21.9915C5.98402 22.1045 7.13675 21.0849 9.44216 19.0458C10.4612 18.1445 10.9708 17.6938 11.5603 17.5751C11.8506 17.5166 12.1494 17.5166 12.4397 17.5751C13.0292 17.6938 13.5388 18.1445 14.5578 19.0458C16.8633 21.0849 18.016 22.1045 19.0031 21.9915C19.4739 21.9377 19.9158 21.735 20.2659 21.4123C21 20.7358 21 19.1875 21 16.0909V11.0975C21 6.80891 21 4.6646 19.682 3.3323C18.364 2 16.2426 2 12 2C7.75736 2 5.63604 2 4.31802 3.3323C3.5108 4.14827 3.19796 5.26881 3.07672 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                            <path d="M15 6H9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                        </svg>
+                                    </button>
+                                    <script>
+                                        let mark3 = document.getElementById("marked-2");
+                                        function Bookmark3() {
+                                            if(mark3.classList.contains("text-indigo-700")) {
+                                                mark3.classList.remove("text-indigo-700");
+                                                mark3.classList.add("text-stone-300");
+                                            } else {
+                                                mark3.classList.remove("text-stone-300");
+                                                mark3.classList.add("text-indigo-700");
+                                            }
+                                        };
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative" style="height: 350px;">
+                    <div class="flex justify-center rounded-2xl">
+                        <div class="absolute w-full h-96 overflow-hidden rounded-2xl" style="box-shadow: inset 0 -150px 50px 10px rgba(0, 0, 0);">
+                            <div class="object-cover object-center w-full flex justify-center">
+                                <img class="opacity-80" style="margin: -150px 0 0 0px; height: 1000px;" src="../Assets/saved recipe 3.jpg"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute top-0 right-0 p-8">
+                        <div style="background-color: #FFE1B3" class="flex flex-row space-x-3 px-4 p-2 rounded-2xl">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="#FFAD30" webcrx="">
+                                <path d="M11.2691 4.41115C11.5006 3.89177 11.6164 3.63208 11.7776 3.55211C11.9176 3.48263 12.082 3.48263 12.222 3.55211C12.3832 3.63208 12.499 3.89177 12.7305 4.41115L14.5745 8.54808C14.643 8.70162 14.6772 8.77839 14.7302 8.83718C14.777 8.8892 14.8343 8.93081 14.8982 8.95929C14.9705 8.99149 15.0541 9.00031 15.2213 9.01795L19.7256 9.49336C20.2911 9.55304 20.5738 9.58288 20.6997 9.71147C20.809 9.82316 20.8598 9.97956 20.837 10.1342C20.8108 10.3122 20.5996 10.5025 20.1772 10.8832L16.8125 13.9154C16.6877 14.0279 16.6252 14.0842 16.5857 14.1527C16.5507 14.2134 16.5288 14.2807 16.5215 14.3503C16.5132 14.429 16.5306 14.5112 16.5655 14.6757L17.5053 19.1064C17.6233 19.6627 17.6823 19.9408 17.5989 20.1002C17.5264 20.2388 17.3934 20.3354 17.2393 20.3615C17.0619 20.3915 16.8156 20.2495 16.323 19.9654L12.3995 17.7024C12.2539 17.6184 12.1811 17.5765 12.1037 17.56C12.0352 17.5455 11.9644 17.5455 11.8959 17.56C11.8185 17.5765 11.7457 17.6184 11.6001 17.7024L7.67662 19.9654C7.18404 20.2495 6.93775 20.3915 6.76034 20.3615C6.60623 20.3354 6.47319 20.2388 6.40075 20.1002C6.31736 19.9408 6.37635 19.6627 6.49434 19.1064L7.4341 14.6757C7.46898 14.5112 7.48642 14.429 7.47814 14.3503C7.47081 14.2807 7.44894 14.2134 7.41394 14.1527C7.37439 14.0842 7.31195 14.0279 7.18708 13.9154L3.82246 10.8832C3.40005 10.5025 3.18884 10.3122 3.16258 10.1342C3.13978 9.97956 3.19059 9.82316 3.29993 9.71147C3.42581 9.58288 3.70856 9.55304 4.27406 9.49336L8.77835 9.01795C8.94553 9.00031 9.02911 8.99149 9.10139 8.95929C9.16534 8.93081 9.2226 8.8892 9.26946 8.83718C9.32241 8.77839 9.35663 8.70162 9.42508 8.54808L11.2691 4.41115Z" stroke="#FFAD30" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <p class="text-black">3.0</p>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-0 px-8 w-full">
+                        <div class="space-y-8">
+                            <h3 class="poppins-semibold text-3xl">American Style Cheeseburger with fries</h3>
+                            <div class="flex flex-row w-full justify-between items-center">
+                                <p>By Spicy Nelly</p>
+                                <div class="flex flex-row justify-between items-center space-x-4">
+                                    <svg fill="currentColor" class="w-16 h-16" viewBox="0 -0.08 20 20" data-name="Capa 1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="0.24">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <path d="M10,3.49a7.08,7.08,0,1,0,7.07,7.07A7.08,7.08,0,0,0,10,3.49Zm0,13.45a6.38,6.38,0,1,1,6.37-6.38A6.38,6.38,0,0,1,10,16.94Z"></path>
+                                            <path d="M15.22,10.36a.31.31,0,0,0-.31.31.31.31,0,0,0,.62,0A.31.31,0,0,0,15.22,10.36Z"></path>
+                                            <path d="M4.78,10.36a.31.31,0,0,0-.31.31.31.31,0,0,0,.62,0A.31.31,0,0,0,4.78,10.36Z"></path>
+                                            <circle cx="10" cy="15.72" r="0.31"></circle>
+                                            <path d="M9.06,2.92h1.86a.36.36,0,0,0,.35-.36.35.35,0,0,0-.35-.34H9.05a.35.35,0,0,0-.35.35A.36.36,0,0,0,9.06,2.92Z"></path>
+                                            <path d="M10,5.24a.36.36,0,0,0-.36.35v5.08A.35.35,0,0,0,10,11a.34.34,0,0,0,.35-.35V5.59A.35.35,0,0,0,10,5.24Z"></path>
+                                        </g>
+                                    </svg>
+                                    <p>20 min</p>
+                                    <button title="Unsave recipe" id="marked-4" type="button" class="text-indigo-700 rounded-full bg-white p-4" onclick="Bookmark4()">
+                                        <svg id="bookmark-4" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="none" webcrx="">
+                                            <path d="M3 11.0975V16.0909C3 19.1875 3 20.7358 3.73411 21.4123C4.08422 21.735 4.52615 21.9377 4.99692 21.9915C5.98402 22.1045 7.13675 21.0849 9.44216 19.0458C10.4612 18.1445 10.9708 17.6938 11.5603 17.5751C11.8506 17.5166 12.1494 17.5166 12.4397 17.5751C13.0292 17.6938 13.5388 18.1445 14.5578 19.0458C16.8633 21.0849 18.016 22.1045 19.0031 21.9915C19.4739 21.9377 19.9158 21.735 20.2659 21.4123C21 20.7358 21 19.1875 21 16.0909V11.0975C21 6.80891 21 4.6646 19.682 3.3323C18.364 2 16.2426 2 12 2C7.75736 2 5.63604 2 4.31802 3.3323C3.5108 4.14827 3.19796 5.26881 3.07672 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                            <path d="M15 6H9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                        </svg>
+                                    </button>
+                                    <script>
+                                        let mark4 = document.getElementById("marked-2");
+                                        function Bookmark4() {
+                                            if(mark4.classList.contains("text-indigo-700")) {
+                                                mark4.classList.remove("text-indigo-700");
+                                                mark4.classList.add("text-stone-300");
+                                            } else {
+                                                mark4.classList.remove("text-stone-300");
+                                                mark4.classList.add("text-indigo-700");
+                                            }
+                                        };
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="fixed w-full bottom-0">
+            <div class="relative flex justify-center">
+                <!-- Floating Button -->
+                <div class="flex justify-center text-white absolute top-0">
+                    <div class="border-b-4 border-stone-100 pb-4 px-[50%] lg:px-[75%] xl:px-[100%] 2xl:px-[200%] rounded-full">
+                        <button class="rounded-full bg-indigo-700 p-6 hover:text-indigo-100 duration-500 active:text-indigo-100 hover:shadow-md hover:shadow-indigo-900 active:ring-4 active:ring-indigo-900 active:duration-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12" viewBox="0 0 24 24" fill="none" webcrx="">
+                                <path d="M6 12H18M12 6V18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Footer Navigation Bar -->
+                <div class="flex flex-row justify-between bg-white w-full pb-12 mt-6 text-stone-300">
+                    <div class="flex flex-row justify-evenly border-t-4 rounded-r-full border-stone-100 w-full pt-6 mr-[10%]">
+                        <!-- Home -->
+                        <button class="px-8 p-4 rounded-lg active:bg-blue-100 active:text-indigo-700" onclick="location.href='homepage.html'">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14" viewBox="0 0 24 24" fill="none" webcrx="">
+                                <path d="M12 15L12 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M22 12.2039V13.725C22 17.6258 22 19.5763 20.8284 20.7881C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.7881C2 19.5763 2 17.6258 2 13.725V12.2039C2 9.91549 2 8.77128 2.5192 7.82274C3.0384 6.87421 3.98695 6.28551 5.88403 5.10813L7.88403 3.86687C9.88939 2.62229 10.8921 2 12 2C13.1079 2 14.1106 2.62229 16.116 3.86687L18.116 5.10812C20.0131 6.28551 20.9616 6.87421 21.4808 7.82274" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+
+                        <!-- Bookmarks -->
+                        <button class="px-8 p-4 rounded-lg text-indigo-700 active:bg-blue-100 active:text-indigo-900">
+                            <svg id="bookmark-1" xmlns="http://www.w3.org/2000/svg" class="w-14 h-14" viewBox="0 0 24 24" fill="none" webcrx="">
+                                <path d="M3 11.0975V16.0909C3 19.1875 3 20.7358 3.73411 21.4123C4.08422 21.735 4.52615 21.9377 4.99692 21.9915C5.98402 22.1045 7.13675 21.0849 9.44216 19.0458C10.4612 18.1445 10.9708 17.6938 11.5603 17.5751C11.8506 17.5166 12.1494 17.5166 12.4397 17.5751C13.0292 17.6938 13.5388 18.1445 14.5578 19.0458C16.8633 21.0849 18.016 22.1045 19.0031 21.9915C19.4739 21.9377 19.9158 21.735 20.2659 21.4123C21 20.7358 21 19.1875 21 16.0909V11.0975C21 6.80891 21 4.6646 19.682 3.3323C18.364 2 16.2426 2 12 2C7.75736 2 5.63604 2 4.31802 3.3323C3.5108 4.14827 3.19796 5.26881 3.07672 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M15 6H9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="flex flex-row justify-evenly w-full ml-[10%] border-t-4 pt-6 border-stone-100 rounded-l-full">
+                        <!-- Notifications -->
+                        <button onclick="location.href='notifications.html'" class="px-8 p-4 rounded-lg active:bg-blue-100 active:text-indigo-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14" viewBox="0 0 24 24" fill="none" webcrx="">
+                                <path d="M12 6V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M7.5 19C8.15503 20.7478 9.92246 22 12 22C12.2445 22 12.4847 21.9827 12.7192 21.9492M16.5 19C16.2329 19.7126 15.781 20.3428 15.1985 20.8393" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M9.10745 2.67414C9.98414 2.24187 10.9649 2 12 2C15.7274 2 18.7491 5.13623 18.7491 9.00497V9.70957C18.7491 10.5552 18.9903 11.3818 19.4422 12.0854L20.5496 13.8095C21.5612 15.3843 20.789 17.5249 19.0296 18.0229C14.4273 19.3257 9.57274 19.3257 4.97036 18.0229C3.21105 17.5249 2.43882 15.3843 3.45036 13.8095L4.5578 12.0854C5.00972 11.3818 5.25087 10.5552 5.25087 9.70957V9.00497C5.25087 7.93058 5.48391 6.91269 5.90039 6.00277" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+
+                        <!-- Profile -->
+                        <button onclick="location.href='profile.html'" class="px-8 p-4 rounded-lg active:bg-blue-100 active:text-indigo-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14" viewBox="0 0 24 24" fill="none" webcrx="">
+                                <circle cx="12" cy="6" r="4" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M19.9975 18C20 17.8358 20 17.669 20 17.5C20 15.0147 16.4183 13 12 13C7.58172 13 4 15.0147 4 17.5C4 19.9853 4 22 12 22C14.231 22 15.8398 21.8433 17 21.5634" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

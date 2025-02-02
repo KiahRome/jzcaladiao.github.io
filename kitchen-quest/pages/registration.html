@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.10/dist/cdn.min.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href="../Assets/Poppins-styles.css" rel="stylesheet">
+
+        <style>
+            input[class="custom-checkbox"] {
+                -webkit-appearance: none;
+                appearance: none;
+                margin: 0;
+
+                color: currentColor;
+                width: 1.75em;
+                height: 1.75em;
+                border: 0.12em solid rgb(108, 157, 255);
+                border-radius: 0.45em;
+                
+                display: grid;
+                place-content: center;
+                cursor: pointer;
+            }
+            input[class="custom-checkbox"]::before {
+                content: "";
+                width: 1.25em;
+                height: 1.25em;
+                transform: scale(0);
+                transform-origin: center;
+                transition: 150ms transform ease-in-out;
+                box-shadow: inset 1em 1em rgb(126, 90, 255);
+                background-color: rgb(126, 90, 255);
+            }
+            input[class="custom-checkbox"]:checked::before {
+                transform: scale(1);
+            }
+
+            .bounce:hover {
+                animation: bounce 3s infinite;
+            }
+            @keyframes bounce {
+                0%, 100% {
+                    transform: translateX(0);
+                    animationTimingFunction: cubic-bezier(0.8, 0, 1, 1);
+                } 50% {
+                    transform: translateX(-45%);
+                    animationTimingFunction: cubic-bezier(0, 0, 0.2, 1);
+                }
+            }
+        </style>
+    </head>
+    <body class="poppins-regular selection:bg-indigo-700 selection:text-stone-100 text-xl min-h-screen">
+        <div x-data>
+            <!-- Login -->
+            <div id="login" x-transition class="py-20 px-16 flex flex-col justify-between h-screen">
+                <div class="flex flex-row justify-between">
+                    <div class="space-y-4">
+                        <h1 class="poppins-semibold text-5xl">Hello,</h1>
+                        <h2 class="text-4xl">Culinary Explorers!</h2>
+                    </div>
+                    <div>
+                        <button class="p-6 bounce" title="Go back to Splash Page" onclick="location.href='../index.html'" type="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12" viewBox="0 0 24 24" fill="none" webcrx="">
+                                <path d="M14.2893 5.70708C13.8988 5.31655 13.2657 5.31655 12.8751 5.70708L7.98768 10.5993C7.20729 11.3805 7.2076 12.6463 7.98837 13.427L12.8787 18.3174C13.2693 18.7079 13.9024 18.7079 14.293 18.3174C14.6835 17.9269 14.6835 17.2937 14.293 16.9032L10.1073 12.7175C9.71678 12.327 9.71678 11.6939 10.1073 11.3033L14.2893 7.12129C14.6799 6.73077 14.6799 6.0976 14.2893 5.70708Z" fill="currentColor"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="space-y-4 text-2xl mt-20">
+                    <p>Email</p>
+                    <input placeholder="Enter Email" class="border-2 placeholder:text-xl border-stone-400 p-6 rounded-2xl shadow-inner shadow-stone-300 w-full focus:outline-none focus:ring focus:ring-indigo-700"/>
+                </div>
+                <div class="space-y-4 text-2xl mt-4">
+                    <p>Enter Password</p>
+                    <input type="password" placeholder="Enter Password" class="border-2 placeholder:text-xl border-stone-400 p-6 rounded-2xl shadow-inner shadow-stone-300 w-full focus:outline-none focus:ring focus:ring-indigo-700"/>
+                </div>
+                <div>
+                    <a href="#" class="text-blue-500 hover:text-blue-700 active:text-indigo-800">Forgot Password?</a>
+                </div>
+                <div>
+                    <button style="background-color:#4B50BE" class="flex flex-row items-center justify-center space-x-12 text-white hover:text-indigo-100 x-transition duration-500 active:text-indigo-100 hover:shadow-md hover:shadow-indigo-900 active:ring-4 active:ring-indigo-900 active:duration-0 rounded-2xl w-full p-10" onclick="location.href='homepage.html'">
+                        <p class="poppins-medium text-3xl">Sign In</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="none" webcrx="">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12.2929 4.29289C12.6834 3.90237 13.3166 3.90237 13.7071 4.29289L20.7071 11.2929C21.0976 11.6834 21.0976 12.3166 20.7071 12.7071L13.7071 19.7071C13.3166 20.0976 12.6834 20.0976 12.2929 19.7071C11.9024 19.3166 11.9024 18.6834 12.2929 18.2929L17.5858 13H4C3.44772 13 3 12.5523 3 12C3 11.4477 3.44772 11 4 11H17.5858L12.2929 5.70711C11.9024 5.31658 11.9024 4.68342 12.2929 4.29289Z" fill="currentColor"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="space-y-12 mt-8">
+                    <div class="flex justify-center items-center relative">
+                        <div style="padding:1px;" class="bg-stone-300 w-96"></div>
+                        <div class="absolute bg-white px-3">
+                            <p class="poppins-medium text-stone-300">Or Sign in With</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-row justify-center space-x-20 selection:bg-transparent">
+                        <button title="Google" class="shadow-lg rounded-2xl p-8 hover:shadow hover:shadow-indigo-700 active:ring-2 active:duration-0 active:ring-indigo-700 x-transition duration-500">
+                            <img class="w-10 h-10" src="../Assets/Logo-google-icon-PNG.png" alt="Google" title="Google"/>
+                        </button>
+                        <button title="Facebook" class="shadow-lg rounded-2xl p-8 hover:shadow hover:shadow-indigo-700 active:ring-2 active:duration-0 active:ring-indigo-700 x-transition duration-500">
+                            <img class="w-10 h-10" src="../Assets/facebook-icon.png" alt="Facebook" title="Facebook"/>
+                        </button>
+                    </div>
+                </div>
+                <div class="flex justify-center pt-20">
+                    <span class="poppins-medium text-2xl">Don't have an account? <a href="#" class="text-blue-500 hover:text-blue-700 active:text-indigo-800" onclick="SignIn()">Sign up</a></span>
+                </div>
+            </div>
+            
+            <!-- Registration -->
+            <div id="signup" x-transition class="hidden px-16 py-20 flex flex-col justify-between h-screen">
+                <div class="flex flex-row justify-between">
+                    <div class="space-y-4">
+                        <h3 class="poppins-semibold text-3xl">Create an account</h3>
+                        <p class="mr-20">Join our community and embark on a flavorful journey today by creating an account!</p>
+                    </div>
+                    <div>
+                        <button class="p-4 bounce" title="Go back to Sign-in Page" onclick="Login()" type="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" viewBox="0 0 24 24" fill="none" webcrx="">
+                                <path d="M14.2893 5.70708C13.8988 5.31655 13.2657 5.31655 12.8751 5.70708L7.98768 10.5993C7.20729 11.3805 7.2076 12.6463 7.98837 13.427L12.8787 18.3174C13.2693 18.7079 13.9024 18.7079 14.293 18.3174C14.6835 17.9269 14.6835 17.2937 14.293 16.9032L10.1073 12.7175C9.71678 12.327 9.71678 11.6939 10.1073 11.3033L14.2893 7.12129C14.6799 6.73077 14.6799 6.0976 14.2893 5.70708Z" fill="currentColor"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div>
+                    <p>Name</p>
+                    <input placeholder="Enter Name" class="border-2 placeholder:text-xl border-stone-400 p-6 rounded-2xl shadow-inner shadow-stone-300 w-full focus:outline-none focus:ring focus:ring-indigo-700"/>
+                </div>
+                <div>
+                    <p>Email</p>
+                    <input placeholder="Enter Email" class="border-2 placeholder:text-xl border-stone-400 p-6 rounded-2xl shadow-inner shadow-stone-300 w-full focus:outline-none focus:ring focus:ring-indigo-700"/>
+                </div>
+                <div>
+                    <p>Password</p>
+                    <input type="password" placeholder="Enter Password" class="border-2 placeholder:text-xl border-stone-400 p-6 rounded-2xl shadow-inner shadow-stone-300 w-full focus:outline-none focus:ring focus:ring-indigo-700"/>
+                </div>
+                <div>
+                    <p>Confirm Password</p>
+                    <input type="password" placeholder="Re-type Password" class="border-2 placeholder:text-xl border-stone-400 p-6 rounded-2xl shadow-inner shadow-stone-300 w-full focus:outline-none focus:ring focus:ring-indigo-700"/>
+                </div>
+                <div class="flex flex-row items-center ml-6 space-x-4">
+                    <input type="checkbox" style="-webkit-appearance:none; appearance:none;" class="custom-checkbox"/>
+                    <a href="#" class="text-blue-500 hover:text-blue-700 active:text-indigo-800">Accept terms & Condition</a>
+                </div>
+                <div>
+                    <button style="background-color:#4B50BE" class="flex flex-row items-center justify-center space-x-12 text-white hover:text-indigo-100 x-transition duration-500 active:text-indigo-100 hover:shadow-md hover:shadow-indigo-900 active:ring-4 active:ring-indigo-900 active:duration-0 rounded-2xl w-full p-8" onclick="location.href='homepage.html'">
+                        <p class="poppins-medium text-2xl">Sign Up</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="none" webcrx="">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12.2929 4.29289C12.6834 3.90237 13.3166 3.90237 13.7071 4.29289L20.7071 11.2929C21.0976 11.6834 21.0976 12.3166 20.7071 12.7071L13.7071 19.7071C13.3166 20.0976 12.6834 20.0976 12.2929 19.7071C11.9024 19.3166 11.9024 18.6834 12.2929 18.2929L17.5858 13H4C3.44772 13 3 12.5523 3 12C3 11.4477 3.44772 11 4 11H17.5858L12.2929 5.70711C11.9024 5.31658 11.9024 4.68342 12.2929 4.29289Z" fill="currentColor"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="space-y-8 mt-4">
+                    <div class="flex justify-center items-center relative">
+                        <div style="padding:1px;" class="bg-stone-300 w-96"></div>
+                        <div class="absolute bg-white px-3">
+                            <p class="poppins-medium text-stone-300">Or Sign in With</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-row justify-center space-x-20 selection:bg-transparent">
+                        <button title="Google" class="shadow-lg rounded-2xl p-6 hover:shadow hover:shadow-indigo-700 active:ring-2 active:duration-0 active:ring-indigo-700 x-transition duration-500">
+                            <img class="w-8 h-8" src="../Assets/Logo-google-icon-PNG.png" alt="Google" title="Google"/>
+                        </button>
+                        <button title="Facebook" class="shadow-lg rounded-2xl p-6 hover:shadow hover:shadow-indigo-700 active:ring-2 active:duration-0 active:ring-indigo-700 x-transition duration-500">
+                            <img class="w-8 h-8" src="../Assets/facebook-icon.png" alt="Facebook" title="Facebook"/>
+                        </button>
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <span class="poppins-medium">Already a member? <a href="#" class="text-blue-500 hover: text-blue-700 active:text-indigo-800" onclick="Login()">Sign In</a></span>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // Global Variables
+            let signup = document.getElementById("signup");
+            let hideLogin = document.getElementById("login");
+
+            // Functions
+            function SignIn() {
+                hideLogin.classList.add("hidden");
+                signup.classList.remove("hidden");
+            };
+
+            function Login() {
+                hideLogin.classList.remove("hidden");
+                signup.classList.add("hidden");
+            };
+        </script>
+    </body>
+</html>

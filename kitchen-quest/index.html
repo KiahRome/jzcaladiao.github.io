@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Kitchen Quest</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.10/dist/cdn.min.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href="Assets/Poppins-styles.css" rel="stylesheet">
+    </head>
+    <body class="selection:bg-indigo-700 bg-black text-2xl min-h-screen text-white relative">
+        <div class="absolute w-screen h-screen flex justify-center opacity-40">
+            <img src="Assets/splash screen bg.jpg"/>
+        </div>
+        <div class="flex justify-center relative">
+            <!-- Container -->
+            <div class="flex flex-col justify-evenly items-center h-screen">
+                <div style="padding-top: calc(100% * (100/200))" class="relative w-full h-0">
+                    <img src="Assets/splash screen icon.png" style="transform: scale(0.65) translate(0%, -10%); height: 40vh;" class="object-cover absolute top-0 w-full" alt="Kitchen Quest Icon"/>
+                </div>
+                <p class="poppins-semibold-italic">Unlock the secrets to mouthwatering dishes</p>
+                <!-- Title -->
+                <h1 style="width:40vh;" class="poppins-semibold text-8xl pt-36 text-center">Kitchen Quest</h1>
+                <h4 style="width:25vh" class="poppins-medium-italic text-center text-2xl leading-relaxed tracking-widest">Navigate through a world of flavors!</h4>
+
+                <!-- Start Button -->
+                <div class="flex flex-col space-y-8">
+                    <button style="background-color:#4B50BE" class="py-8 px-12 text-stone-300 hover:text-white hover:shadow-indigo-900 hover:shadow-md active:shadow-indigo-900 active:text-white active:ring-4 active:ring-indigo-900 active:duration-0 x-transition duration-500 rounded-2xl flex flex-row items-center space-x-8" onclick="location.href='pages/registration.html'">
+                        <p class="poppins-semibold text-2xl">Let the Adventure Begin!</p>
+                        <!-- Right Arrow -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="none" webcrx="">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12.2929 4.29289C12.6834 3.90237 13.3166 3.90237 13.7071 4.29289L20.7071 11.2929C21.0976 11.6834 21.0976 12.3166 20.7071 12.7071L13.7071 19.7071C13.3166 20.0976 12.6834 20.0976 12.2929 19.7071C11.9024 19.3166 11.9024 18.6834 12.2929 18.2929L17.5858 13H4C3.44772 13 3 12.5523 3 12C3 11.4477 3.44772 11 4 11H17.5858L12.2929 5.70711C11.9024 5.31658 11.9024 4.68342 12.2929 4.29289Z" fill="currentColor"/>
+                        </svg>
+                    </button>
+                    <a style="background-color:#4B50BE" class="py-8 px-12 text-stone-300 hover:text-white hover:shadow-indigo-900 hover:shadow-md active:shadow-indigo-900 active:text-white active:ring-4 active:ring-indigo-900 active:duration-0 x-transition duration-500 rounded-2xl flex flex-row items-center space-x-8" href="https://drive.google.com/file/d/1vbNhkofCcTxyJzaQfyRFaqiCs1sos_4v/view?usp=sharing">
+                        <p class="poppins-semibold text-2xl">Download the mobile app</p>
+                        <!-- Right Arrow -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="none" webcrx="">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12.2929 4.29289C12.6834 3.90237 13.3166 3.90237 13.7071 4.29289L20.7071 11.2929C21.0976 11.6834 21.0976 12.3166 20.7071 12.7071L13.7071 19.7071C13.3166 20.0976 12.6834 20.0976 12.2929 19.7071C11.9024 19.3166 11.9024 18.6834 12.2929 18.2929L17.5858 13H4C3.44772 13 3 12.5523 3 12C3 11.4477 3.44772 11 4 11H17.5858L12.2929 5.70711C11.9024 5.31658 11.9024 4.68342 12.2929 4.29289Z" fill="currentColor"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
