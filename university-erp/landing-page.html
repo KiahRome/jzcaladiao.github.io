@@ -3,98 +3,21 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width initial-scale=1.0">
-        <title>Landing Page Prototype</title>
-        
-        <style>
-            body {
-                overflow-x: hidden;
-            }
-            ::selection {
-                background-color: #fffbeb;
-                color: #e17100;
-            }
-            .bg-plm-facade {
-                position: absolute;
-                bottom: 0;
-                width: 100%;
-            }
-            header {
-                position: relative;
-                margin-top: 4px;
-                margin-left: 8px;
-            }
-            div p {
-                font-size: 0.75rem;
-                line-height: 1rem;
-                font-weight: 500;
-                color: #372aac;
-            }
-            .plm-logo {
-                display: flex;
-                position: relative;
-                align-items: center;
-            }
-            .plm-logo img {
-                height: 1.5rem;
-                width: 1.5rem;
-                margin-right: 4px;
-            }
-
-            .plm-osds {
-                margin-top: 1rem;
-            }
-            .plm-osds h2 {
-                color: #e17100;
-                font-weight: 600;
-                font-size: 2rem;
-                line-height: 2rem;
-            }
-            .plm-osds nav {
-                position: relative;
-                display: flex;
-                margin-right: 0.5rem;
-            }
-            nav a {
-                color: #1d293d;
-                font-weight: 500;
-                font-size: 0.75rem;
-                padding: 4px;
-                padding-left: 0.75rem;
-                padding-right: 0.75rem;
-                background-color: #f1f5f9;
-                border-radius: 0.25rem;
-                text-decoration: none;
-            }
-            nav a:hover {
-                background-color: #ffd230;
-            }
-
-            
-            @media screen {
-                /* header -- lg:mt-4 lg:ml-16 */
-                /* div logo -- lg:gap-x-4 */
-                /* div logo img -- lg:h-10 lg:w-10 */
-                /* div logo p -- lg:text-base lg:font-semibold */
-                /* div child(2) -- lg:space-y-2 */
-                /* div child(2) h2 -- lg:font-bold lg:text-4xl */
-                /* div child(2) p -- lg:font-semibold lg:text-xl */
-                /* div child(2) nav -- lg:justify-end lg:mr-16 */
-                /* nav a -- lg:text-base lg:p-2 lg:px-6 lg:rounded-md */
-            }
-        </style>
+        <title>OSDS Landing Page</title>
+        <script src="https://cdn.tailwindcss.com"></script>
     </head>
-    <body>
-        <img class="bg-plm-facade" src="https://media.canva.com/v2/image-resize/format:PNG/height:168/quality:100/uri:s3%3A%2F%2Fmedia-private.canva.com%2FDQRPw%2FMAGdx4DQRPw%2F1%2Fp.png/watermark:F/width:550?csig=AAAAAAAAAAAAAAAAAAAAAPg2h5p3UAd-C2yS6OfJOklj98On8SJH0Cf8TJ1Kwz1c&exp=1738420851&osig=AAAAAAAAAAAAAAAAAAAAAOfmetRcZs5igxiXthA0LGcsUnEBVw80U8MV1TwvwSzL&signer=media-rpc&x-canva-quality=thumbnail_large"/>
-        <header>
-            <div class="plm-logo">
-                <img src="https://media.canva.com/v2/image-resize/format:PNG/height:546/quality:100/uri:s3%3A%2F%2Fmedia-private.canva.com%2FCkzAo%2FMAGdx6CkzAo%2F1%2Fp.png/watermark:F/width:550?csig=AAAAAAAAAAAAAAAAAAAAAPCvNpCsNfLnsHdvnzNaS1yXZcvwbvKGnWaXXjh1feqg&exp=1738422154&osig=AAAAAAAAAAAAAAAAAAAAAKf1PN-WR6xxMWFs2U3RkmkhrkWY9vZgNE_kbv6Z99Rl&signer=media-rpc&x-canva-quality=thumbnail_large"/>
-                <p>Discipline Module</p>
+    <body class="selection:bg-amber-300 selection:text-white">
+        <img src="assets/bg-plm-facade.png" class="absolute bottom-0"/>
+        <header class="relative mt-1 ml-2 lg:mt-4 lg:ml-16">
+            <div id="logo" class="inline-flex relative items-end gap-x-1 lg:gap-x-4">
+                <img class="h-6 w-6 lg:h-10 lg:w-10" src="assets/plm-logo.png"/>
+                <p class="text-xs lg:text-base text-indigo-800 font-medium lg:font-semibold cursor-default">Discipline Module</p>
             </div>
-            <div class="plm-osds">
-                <h2>Pamantasan ng Lungsod ng Maynila</h2>
-                <p>The Office of Student Development and Services</p>
-                <nav>
-                    <a href="login-page.html">Sign In</a>
+            <div class="mt-4 lg:space-y-2">
+                <h2 class="text-amber-600 font-semibold text-2xl lg:font-bold lg:text-4xl cursor-default">Pamantasan ng Lungsod ng Maynila</h2>
+                <p class="text-indigo-800 font-medium lg:font-semibold lg:text-xl cursor-default">The Office of Student Development and Services</p>
+                <nav class="relative flex lg:justify-end mr-2 lg:mr-16">
+                    <a href="login-page.html" class="text-slate-800 font-medium text-xs lg:text-base p-1 px-3 lg:p-2 lg:px-6 bg-slate-100 hover:bg-amber-300 rounded lg:rounded-md">Sign In</a>
                 </nav>
             </div>
         </header>

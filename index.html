@@ -4,99 +4,38 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width initial-scale=1.0">
         <title>Landing Page Prototype</title>
-        
-        <style>
-            body {
-                overflow-x: hidden;
-            }
-            ::selection {
-                background-color: #fffbeb;
-                color: #e17100;
-            }
-            .bg-plm-facade {
-                position: absolute;
-                bottom: 0;
-                width: 100%;
-            }
-            header {
-                position: relative;
-                margin-top: 4px;
-                margin-left: 8px;
-            }
-            div p {
-                font-size: 0.75rem;
-                line-height: 1rem;
-                font-weight: 500;
-                color: #372aac;
-            }
-            .plm-logo {
-                display: flex;
-                position: relative;
-                align-items: center;
-            }
-            .plm-logo img {
-                height: 1.5rem;
-                width: 1.5rem;
-                margin-right: 4px;
-            }
-
-            .plm-osds {
-                margin-top: 1rem;
-            }
-            .plm-osds h2 {
-                color: #e17100;
-                font-weight: 600;
-                font-size: 2rem;
-                line-height: 2rem;
-            }
-            .plm-osds nav {
-                position: relative;
-                display: flex;
-                margin-right: 0.5rem;
-            }
-            nav a {
-                color: #1d293d;
-                font-weight: 500;
-                font-size: 0.75rem;
-                padding: 4px;
-                padding-left: 0.75rem;
-                padding-right: 0.75rem;
-                background-color: #f1f5f9;
-                border-radius: 0.25rem;
-                text-decoration: none;
-            }
-            nav a:hover {
-                background-color: #ffd230;
-            }
-
-            
-            @media screen {
-                /* header -- lg:mt-4 lg:ml-16 */
-                /* div logo -- lg:gap-x-4 */
-                /* div logo img -- lg:h-10 lg:w-10 */
-                /* div logo p -- lg:text-base lg:font-semibold */
-                /* div child(2) -- lg:space-y-2 */
-                /* div child(2) h2 -- lg:font-bold lg:text-4xl */
-                /* div child(2) p -- lg:font-semibold lg:text-xl */
-                /* div child(2) nav -- lg:justify-end lg:mr-16 */
-                /* nav a -- lg:text-base lg:p-2 lg:px-6 lg:rounded-md */
-            }
-        </style>
+        <script src="https://cdn.tailwindcss.com"></script>
     </head>
-    <body>
-        <img class="bg-plm-facade" src="https://media.canva.com/v2/image-resize/format:PNG/height:168/quality:100/uri:s3%3A%2F%2Fmedia-private.canva.com%2FDQRPw%2FMAGdx4DQRPw%2F1%2Fp.png/watermark:F/width:550?csig=AAAAAAAAAAAAAAAAAAAAAPg2h5p3UAd-C2yS6OfJOklj98On8SJH0Cf8TJ1Kwz1c&exp=1738420851&osig=AAAAAAAAAAAAAAAAAAAAAOfmetRcZs5igxiXthA0LGcsUnEBVw80U8MV1TwvwSzL&signer=media-rpc&x-canva-quality=thumbnail_large"/>
-        <header>
-            <div class="plm-logo">
-                <img src="https://media.canva.com/v2/image-resize/format:PNG/height:546/quality:100/uri:s3%3A%2F%2Fmedia-private.canva.com%2FCkzAo%2FMAGdx6CkzAo%2F1%2Fp.png/watermark:F/width:550?csig=AAAAAAAAAAAAAAAAAAAAAPCvNpCsNfLnsHdvnzNaS1yXZcvwbvKGnWaXXjh1feqg&exp=1738422154&osig=AAAAAAAAAAAAAAAAAAAAAKf1PN-WR6xxMWFs2U3RkmkhrkWY9vZgNE_kbv6Z99Rl&signer=media-rpc&x-canva-quality=thumbnail_large"/>
-                <p>Discipline Module</p>
+    <body class="overflow-hidden">
+        <article class="w-screen h-[90vh] bg-black text-white font-thin flex flex-row p-32 pl-48 items-center">
+            <div class="bg-white p-4 py-40"></div>
+            <div class="tracking-widest pl-10">
+                <p class="text-9xl">Portfolio</p>
+                <p class="text-3xl pl-2 pt-4">Portal</p>
             </div>
-            <div class="plm-osds">
-                <h2>Pamantasan ng Lungsod ng Maynila</h2>
-                <p>The Office of Student Development and Services</p>
-                <nav>
-                    <a href="university-erp/login-page.html">Sign In</a>
-                </nav>
+        </article>
+        <nav class="flex flex-row space-x-5 p-3 bg-black text-gray-500 text-xs font-bold grid grid-cols-12 bg-white">
+            <div class="border-2 border-gray-300 bg-black">
+                <p>Logo</p>
             </div>
-        </header>
+            <div class="flex flex-row space-x-5 grid grid-cols-4 col-span-8 border-2 border-gray-300 bg-black p-3 items-center">
+                <a href="https://jzcaladiao.netlify.app/" class="rounded-xl bg-white text-black px-3 p-1">
+                    <p>Home</p>
+                </a>
+                <a href="https://jzcaladiao.netlify.app/university-erp/landing-page" class="rounded-xl bg-white text-black px-3 p-1">
+                    <p>University ERP UI</p>
+                </a>
+                <a href="https://jzcaladiao.netlify.app/gad-cfo/GAD_CFO_CORNER" class="rounded-xl bg-white text-black px-3 p-1">
+                    <p>GAD CFO UI</p>
+                </a>
+                <a href="https://sites.google.com/view/jzcaladiao?usp=sharing" class="rounded-xl bg-white text-black px-3 p-1">
+                    <p>Other Works</p>
+                </a>
+            </div>
+            <div class="flex flex-row space-x-8 col-span-3 border-2 border-gray-300 bg-black">
+                <p>Toggle mode</p>
+                <p>Toggle music</p>
+            </div>
+        </nav>
     </body>
 </html>

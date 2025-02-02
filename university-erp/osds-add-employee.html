@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width initial-scale=1.0">
+        <title>OSDS Add Employee</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.5/dist/cdn.min.js"></script>
+
+        <style>
+            .custom-scroller {
+                &::-webkit-scrollbar {
+                    width: 20px;
+                }
+                &::-webkit-scrollbar-track {
+                    box-shadow:inset 0 0 5px grey;
+                }
+                &::-webkit-scrollbar-thumb {
+                    background: rgb(8, 39, 255);
+                }
+                &::-webkit-scrollbar-thumb:hover {
+                    background: rgb(0, 34, 100);
+                }
+            }
+            th {
+                padding:6px;
+            }
+            td {
+                padding:3px;
+            }
+
+            input::-webkit-inner-spin-button,
+            input::-webkit-outer-spin-button {
+                appearance: none;
+                margin: 0;
+            }
+        </style>
+    </head>
+    <body class="selection:bg-amber-50 selection:text-amber-600 cursor-default custom-scroller bg-indigo-50">
+        <main class="tracking-wide min-h-screen overflow-x-hidden text-indigo-800">
+            <header class="flex flex-row bg-white grid grid-cols-12 items-center border-b border-indigo-800 pl-1 pr-6">
+                <!-- Menubar -->
+                <div class="flex flex-row justify-evenly items-center col-span-2">
+                    <button class="hover:bg-amber-50 p-2 rounded hover:text-amber-600 active:bg-amber-300">
+                        <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14"/>
+                        </svg>                      
+                    </button>
+                    <button class="flex flex-row hover:bg-amber-50 hover:text-amber-600 lg:px-4 active:bg-amber-300 active:font-semibold p-2 rounded" onclick="location.href='osds-administrator.html'">
+                        <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12l4-4m-4 4 4 4"/>
+                        </svg>
+                        <p class="hidden lg:block">Back</p>
+                    </button>
+                </div>
+                <!-- PLM -->
+                <div class="border-l border-indigo-300 pl-4 py-2.5 lg:col-span-2">
+                    <img class="hidden lg:block h-10 w-auto selection:bg-transparent" alt="PLM Logo" src="assets/plm-logo--with-header.png"/>
+                    <img class="lg:hidden block h-8 w-8" src="assets/plm-logo-hd.png"/>
+                </div>
+                <div class="flex flex-row items-center space-x-2 col-span-5 lg:col-span-4 pr-4 lg:px-0 text-center lg:space-x-2 space-x-6">
+                    <!-- OSDS -->
+                    <img class="hidden lg:block h-10 w-10" src="assets/osdslogo.png"/>
+                    <div class="flex flex-col">
+                        <h1 class="text-sm font-light">The Office of Student Development and Services</h1>
+                        <input type="text" placeholder="Search anything..." class="focus:outline-none rounded border border-indigo-500 text-xs p-1 placeholder:text-indigo-300 px-2 focus:border-indigo-800"/>
+                    </div>
+                    <img class="lg:hidden h-8 w-8" src="assets/osdslogo.png"/>
+                </div>
+                <div class="col-span-2 flex flex-row justify-end space-x-4 items-end">
+                    <button class="transition-colors duration-300 transform rounded-full border-4 border-transparent hover:border-4 text-indigo-500 hover:text-amber-600 hover:border-amber-300 hover:bg-amber-300 focus:outline-none">
+                        <svg class="w-10 h-10" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a8.949 8.949 0 0 0 4.951-1.488A3.987 3.987 0 0 0 13 16h-2a3.987 3.987 0 0 0-3.951 3.512A8.948 8.948 0 0 0 12 21Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                          </svg>                          
+                    </button>
+                    <div class="truncate text-indigo-800 max-w-40 w-40">
+                        <p class="text-md font-semibold">User Name</p>
+                        <p class="text-sm">Position</p>
+                    </div>
+                </div>
+                <div class="text-xs lg:text-sm font-light text-right border-l border-indigo-300 col-span-2">
+                    <!-- Date and Time -->
+                    <p id="weekday"></p>
+                    <p id="date"></p>
+                    <p id="time"></p>
+                </div>
+    
+                <script>
+                    function updateDateTime() {
+                        var currentDateTime = new Date();
+                        var weekday = {weekday:'long'};
+                        var options = {year:'numeric', month:'long', day:'numeric'};
+                        var dateString = currentDateTime.toLocaleString('en-PH',options);
+                        var weekDayString = currentDateTime.toLocaleString('en-PH',weekday);
+                        var timeString = currentDateTime.toLocaleTimeString();
+                        document.getElementById("weekday").innerHTML = weekDayString;
+                        document.getElementById("date").innerHTML = dateString;
+                        document.getElementById("time").innerHTML = timeString;
+                    }
+                    setInterval(updateDateTime, 1000);
+                    updateDateTime();
+                </script>
+            </header>
+            <article class="grid grid-cols-6">
+                <aside class="bg-indigo-800 text-white pb-10 relative">
+                    <button class="hover:bg-amber-50 hover:text-amber-600 active:bg-amber-300 active:font-semibold flex flex-row items-center justify-center w-full p-4 mt-6 space-x-2" onclick="location.href='osds-dean-dashboard.html'">
+                        <svg class="h-6 w-6" viewBox="0 0 64 64" fill="currentColor">
+                            <path fill-rule="evenodd" d="m56,34h-7v20h-12v-16h-10v16h-12v-20h-7v-4L32,6l9,9v-7h8v15l7,7v4Z" clip-rule="evenodd"></path>
+                        </svg>
+                        <p class="text-xs lg:text-base">Home</p>
+                    </button>
+                    <button class="hover:bg-amber-50 hover:text-amber-600 active:bg-amber-300 active:font-semibold flex flex-row items-center justify-center w-full p-4 mt-6 space-x-2" onclick="location.href='osds-case-records.html'">
+                        <svg class="h-6 w-6" viewBox="0 0 64 64" fill="currentColor">
+                            <path fill-rule="evenodd" d="m30,20v34h-5l-1.89-3.79c-.76-1.51-1.88-2.21-3.58-2.21H6V12h16c4.94,0,8,3.06,8,8Zm12-8c-4.94,0-8,3.06-8,8v34h5l1.89-3.79c.76-1.51,1.88-2.21,3.58-2.21h13.53V12h-16Z" clip-rule="evenodd"></path>
+                        </svg>
+                        <p class="hidden lg:block">Case Records</p>
+                        <p class="lg:hidden text-xs">Records</p>
+                    </button>
+                    <button class="hover:bg-amber-50 hover:text-amber-600 active:bg-amber-300 active:font-semibold flex flex-row items-center justify-center w-full p-4 mt-6 space-x-2" onclick="location.href='osds-reports.html'">
+                        <svg class="h-6 w-6" viewBox="0 0 64 64" fill="currentColor">
+                            <path fill-rule="evenodd" d="m54,10v40h-4l-20-10h-4l4,16h-10l-4-16c-4.94,0-8-3.06-8-8v-4c0-4.94,3.06-8,8-8h14l20-10h4Z" clip-rule="evenodd"></path>
+                        </svg>
+                        <p>Reports</p>
+                    </button>
+                    <button class="text-amber-600 bg-amber-300 font-semibold flex flex-row items-center justify-center w-full p-4 mt-6 space-x-2" onclick="location.href='osds-administrator.html'">
+                        <svg class="h-6 w-6" viewBox="0 0 64 64" fill="currentColor">
+                            <path fill-rule="evenodd" d="m56,10.83l-4.22,6.49c-2.72,4.18-4.88,6.85-8.41,10.38l-10.3,10.3-7.07-7.07,10.3-10.3c3.53-3.53,6.19-5.69,10.38-8.41l6.49-4.22,2.83,2.83Zm-32.39,23.37l6.2,6.2-5.8,11.61h-4.44c-2.37,0-3.98.67-5.66,2.34l-1.66,1.66-4.24-4.24,1.66-1.66c1.68-1.68,2.34-3.29,2.34-5.66v-4.44l11.61-5.8Zm-.61,9.8c0-1.66-1.34-3-3-3s-3,1.34-3,3,1.34,3,3,3,3-1.34,3-3Z" clip-rule="evenodd"></path>
+                        </svg>
+                        <p class="hidden lg:block">Administrator</p>
+                        <p class="lg:hidden text-xs">Admin</p>
+                    </button>
+                    <button class="hover:bg-amber-50 hover:text-amber-600 active:bg-amber-300 active:font-semibold flex flex-row items-center justify-center w-full p-4 mt-6 space-x-2" onclick="location.href='osds-settings.html'">
+                        <svg class="h-6 w-6" viewBox="0 0 64 64" fill="currentColor">
+                            <path fill-rule="evenodd" d="m55.89,18.44l3.66-2.71-1.53-3.7-4.51.67c-.65-.84-1.39-1.58-2.21-2.21l.67-4.5-3.7-1.53-2.71,3.66c-1.03-.14-2.08-.14-3.13,0l-2.71-3.66-3.7,1.53.67,4.51c-.84.64-1.58,1.39-2.21,2.21l-4.5-.67-1.53,3.7,3.66,2.71c-.14,1.03-.14,2.08,0,3.13l-3.66,2.71,1.53,3.7,4.51-.67c.64.84,1.39,1.58,2.21,2.21l-.67,4.5,3.7,1.53,2.71-3.66c1.03.14,2.08.14,3.13,0l2.71,3.66,3.7-1.53-.67-4.51c.84-.64,1.58-1.39,2.21-2.21l4.5.67,1.53-3.7-3.66-2.71c.14-1.03.14-2.08,0-3.13Zm-11.89,7.56c-3.31,0-6-2.69-6-6s2.69-6,6-6,6,2.69,6,6-2.69,6-6,6Zm-13.62,12.01l2.34-3.91-2.83-2.83-3.91,2.34c-.9-.52-1.87-.92-2.89-1.19l-1.11-4.42h-4l-1.11,4.42c-1.02.27-1.99.68-2.89,1.19l-3.91-2.34-2.83,2.83,2.34,3.91c-.52.9-.92,1.87-1.19,2.89l-4.42,1.11v4l4.42,1.11c.27,1.02.68,1.99,1.19,2.89l-2.34,3.91,2.83,2.83,3.91-2.34c.9.52,1.87.92,2.89,1.19l1.11,4.42h4l1.11-4.42c1.02-.27,1.99-.68,2.89-1.19l3.91,2.34,2.83-2.83-2.34-3.91c.52-.9.92-1.87,1.19-2.89l4.42-1.11v-4l-4.42-1.11c-.27-1.02-.68-1.99-1.19-2.89Zm-10.38,11.99c-3.31,0-6-2.69-6-6s2.69-6,6-6,6,2.69,6,6-2.69,6-6,6Z" clip-rule="evenodd"></path>
+                        </svg>
+                        <p>Settings</p>
+                    </button>
+                    <button class="hover:bg-red-200 hover:text-red-600 active:bg-red-400 active:font-semibold flex flex-row items-center justify-center w-full p-4 space-x-2 mt-20" onclick="location.href='login-page.html'">
+                        <svg class="h-5 w-5" viewBox="0 0 64 64" fill="currentColor">
+                            <path fill-rule="evenodd" d="m34,44h6v12H10V8h30v12h-6v-6h-18v36h18v-6Zm15.24-25l-4.24,4.24,5.76,5.76h-16.76v6h16.76l-5.76,5.76,4.24,4.24,13-13-13-13Z" clip-rule="evenodd"></path>
+                        </svg>
+                        <p class="text-xs lg:text-base">Log Out</p>
+                    </button>
+                    <div class="absolute bottom-1 left-2">
+                        <p class="text-xs font-thin text-indigo-300">Discipline Module</p>
+                    </div>
+                </aside>
+                <div class="col-span-5 bg-white">
+                    <div class="border-b border-indigo-800 p-6 pb-1.5">
+                        <p class="text-3xl font-thin tracking-widest">Adding New Employee</p>
+                    </div>
+                    <form class="grid grid-rows-2 p-6 text-xs font-light tracking-widest">
+                        <div class="grid grid-cols-5 space-x-2">
+                            <div>
+                                <input type="file" name="file1" id="file1" class="profile-picture hidden w-0 h-0 opacity-0 overflow-hidden absolute -z-10" data-multiple-caption="{count} files selected" multiple/>
+                                <label for="file1" class="border-2 border-dashed border-indigo-300 flex items-center justify-center w-48 h-56 text-indigo-300 hover:bg-amber-50 hover:text-amber-400 hover:border-amber-600 cursor-pointer active" title="Profile Picture">
+                                    <!-- If sex document is Male -->
+                                    <svg id="malePic" class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" version="1.1" webcrx="">
+                                        <path fill="currentColor" d="M512,512l-512,0c0,-108.606 2.909,-138.303 8.727,-153.819c2.909,-4.121 7.091,-8.181 12.546,-12.181c5.454,-4 12.606,-7.94 21.454,-11.819c8.849,-3.878 16.909,-7.212 24.182,-10c7.273,-2.787 17.212,-6.484 29.818,-11.09c12.606,-4.607 22.546,-8.243 29.818,-10.91c6.303,-2.424 12.425,-5.212 18.364,-8.363c5.939,-3.152 9.758,-5.091 11.455,-5.818c1.697,2.181 3.272,13.515 4.727,34c1.454,20.484 3.515,43.818 6.182,70c2.666,26.181 5.939,45.818 9.818,58.909c1.697,5.818 5.273,10.363 10.727,13.636c5.455,3.273 10.606,5.515 15.455,6.727c4.848,1.212 7.394,2.182 7.636,2.909c0.243,-0.969 2.727,-12.969 7.455,-36c4.727,-23.03 9.151,-43.393 13.272,-61.09c1.775,-7.621 3.37,-15.905 4.785,-23.255c1.421,-7.379 2.66,-13.817 3.718,-17.697l-32.139,-32.139l48,-32l48,32l-31.955,31.955c6.302,16.342 16.024,63.881 29.165,128.142c0.679,3.318 1.366,6.68 2.063,10.084c0.242,-0.727 2.788,-1.697 7.636,-2.909c4.849,-1.212 10,-3.454 15.455,-6.727c5.454,-3.273 9.03,-7.818 10.727,-13.636c3.879,-13.091 6.97,-32.728 9.273,-58.909c2.303,-26.182 4,-49.516 5.091,-70c1.09,-20.485 2.484,-31.819 4.181,-34c1.697,0.727 5.516,2.666 11.455,5.818c5.939,3.151 12.061,5.939 18.364,8.363c7.272,2.667 17.212,6.303 29.818,10.91c12.606,4.606 22.545,8.303 29.818,11.09c7.273,2.788 15.333,6.122 24.182,10c8.848,3.879 16,7.819 21.454,11.819c5.455,4 9.637,8.06 12.546,12.181c3.151,9.697 5.394,36.364 6.727,80c0.47,15.374 0.857,25.707 1.161,33.831l0,0.002c0.558,14.906 0.838,22.373 0.839,39.986Zm-256,-256c-70.692,0 -128,-57.308 -128,-128c0,-70.692 57.308,-128 128,-128c70.692,0 128,57.308 128,128c0,70.692 -57.308,128 -128,128Zm108.8,-127.2c-10.4,2.133 -25.267,1.133 -44.6,-3c-19.333,-4.134 -35.667,-9 -49,-14.6c-9.067,-4 -17.733,-8.6 -26,-13.8c-8.267,-5.2 -17.733,-11.734 -28.4,-19.6c-10.667,-7.867 -18.933,-13.667 -24.8,-17.4c4.267,31.733 -10.667,54.4 -44.8,68c0.267,30.133 11,55.733 32.2,76.8c21.2,21.066 46.733,31.6 76.6,31.6c29.867,0 55.4,-10.534 76.6,-31.6c21.2,-21.067 31.933,-46.533 32.2,-76.4Z"/>
+                                    </svg>
+                                    <!-- If sex document is Female -->
+                                    <svg id="femalePic" class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="-16 0 512 512" version="1.1" webcrx="">
+                                        <path fill="currentColor" d="M240,364.865c-18.723,0.194 -36.899,-5.382 -52.908,-14.952l-19.792,-61.913c-5.975,2.319 -23.9,6.203 -53.775,11.653c-29.875,5.449 -56.265,11.71 -79.169,18.782c-22.904,7.073 -34.356,15.015 -34.356,23.826c0,51.448 12.162,96.485 26.989,151.388l0.004,0.016c1.617,5.988 3.266,12.092 4.933,18.335l416.148,0c1.668,-6.243 3.316,-12.348 4.933,-18.335l0.004,-0.017c14.827,-54.903 26.989,-99.939 26.989,-151.387c0,-8.812 -11.452,-16.754 -34.356,-23.826c-22.904,-7.073 -49.294,-13.334 -79.169,-18.783c-29.875,-5.449 -47.8,-9.333 -53.775,-11.652l-19.792,61.913c-16.009,9.569 -34.185,15.146 -52.908,14.952Zm0,12.183c16.313,-0.187 31.786,-3.746 46.815,-10.092l-46.815,121.871l-46.815,-121.871c15.029,6.347 30.502,9.905 46.815,10.092Zm61.763,-133.062c26.032,19.708 50.312,27.567 72.839,23.575c-12.014,-6.985 -19.148,-17.588 -21.401,-31.808c4.005,5.239 9.825,8.607 17.459,10.104c7.634,1.497 15.081,0.998 22.34,-1.497c-12.265,-10.727 -20.4,-21.829 -24.405,-33.305c-4.005,-11.476 -7.009,-27.193 -9.011,-47.15c-1.001,-10.977 -1.69,-26.507 -2.065,-46.59c-0.375,-20.082 -1.564,-35.737 -3.567,-46.963c-2.002,-11.227 -6.007,-21.081 -12.015,-29.563c-7.509,-10.727 -23.028,-20.207 -46.557,-28.44c-23.528,-8.233 -43.178,-12.349 -58.947,-12.349c-21.777,0 -44.68,5.364 -68.709,16.091c-24.03,10.728 -39.173,25.322 -45.431,43.783c-1.752,5.239 -3.191,16.216 -4.318,32.93c-1.126,16.715 -1.939,33.368 -2.44,49.958c-0.501,16.59 -0.751,25.259 -0.751,26.007c-4.505,44.157 -13.767,71.599 -27.784,82.327c3.504,2.245 9.011,2.307 16.52,0.187c7.509,-2.121 14.017,-5.301 19.524,-9.542c-0.25,7.484 -5.882,17.463 -16.896,29.936c6.759,1.248 17.96,-1.122 33.604,-7.11c15.644,-5.987 27.722,-11.725 36.232,-17.213c18.773,10.727 38.923,16.091 60.449,16.091c23.779,0 45.556,-6.487 65.33,-19.459Zm-140.797,-31.808c-2.253,-14.969 -0.751,-40.415 4.505,-76.339c5.257,-35.925 13.016,-56.381 23.279,-61.371c1.752,-0.748 5.006,0.811 9.762,4.678c4.755,3.867 7.384,7.172 7.884,9.916c1.502,7.984 0,15.717 -4.505,23.201c4.756,4.241 13.954,6.861 27.596,7.859c13.642,0.998 26.032,1.06 37.171,0.187c11.138,-0.873 19.586,-1.933 25.343,-3.181c3.004,3.243 5.82,6.736 8.448,10.478c2.628,3.742 4.818,7.921 6.571,12.536c1.752,4.615 3.254,8.607 4.505,11.975c1.252,3.368 2.441,7.983 3.567,13.846c1.126,5.862 1.877,9.979 2.253,12.349c0.375,2.37 0.938,6.611 1.689,12.723c0.751,6.112 1.252,9.667 1.502,10.665c-9.511,13.471 -21.651,24.137 -36.419,31.995c-14.769,7.858 -30.663,11.788 -47.684,11.788c-30.037,0 -55.193,-11.102 -75.467,-33.305Z"/>
+                                    </svg>
+                                    <img id="sign1" title="Change Profile Picture" class="hidden text-center w-full h-full"/>
+                                    <p id="text1" class="font-thin tracking-widest"></p>
+                                </label>
+                            </div>
+                            <script>
+                                var profile = document.querySelectorAll(".profile-picture");
+                                Array.prototype.forEach.call(profile, function(input){
+                                    var label1 = input.nextElementSibling,
+                                    labelVal1 = label1.innerHTML;
+                    
+                                    input.addEventListener('change', function(e) {
+                                        var fileName1 = '';
+                    
+                                        var reader1 = new FileReader();
+                                        reader1.readAsDataURL(document.getElementById("file1").files[0]);
+                    
+                                        reader1.onload = function(e) {
+                    
+                                            viewImage1.src = e.target.result;
+                                        };
+                                        viewImage1 = document.getElementById("sign1");
+                                        viewCount1 = document.getElementById("text1");
+        
+                                        malePic = document.getElementById("malePic");
+                                        femalePic = document.getElementById("femalePic");
+                    
+                                        if(this.files && this.files.length > 1) {
+                                            fileName1 = (this.getAttribute('data-multiple-caption') || '').replace('{count}', this.files.length);
+                    
+                                            viewImage1.classList.remove("block");
+                                            viewImage1.classList.add("hidden");
+                                            viewCount1.classList.remove("hidden");
+        
+                                            malePic.classList.add("hidden");
+                                            femalePic.classList.add("hidden");
+                    
+                                            if(fileName1)
+                                                label1.querySelector('p').innerHTML = fileName1;
+                                            
+                                            else label1.innerHTML = labelVal1;
+                                        }
+                                        else {
+                                            viewImage1.classList.remove("hidden");
+                                            viewImage1.classList.add("block");
+                                            viewCount1.classList.add("hidden");
+        
+                                            malePic.classList.add("hidden");
+                                            femalePic.classList.add("hidden");
+                                        }
+                                    });
+                                });
+                            </script>
+                            <div class="space-y-6">
+                                <div>
+                                    <p>First Name</p>
+                                    <input type="text" class="border border-indigo-300 focus:outline-none text-amber-600 selection:bg-indigo-50 selection:text-indigo-800 focus:border-indigo-800 rounded p-2 w-full text-sm placeholder:text-indigo-300 placeholder:tracking-widest placeholder:text-xs" placeholder="First name"/>
+                                </div>
+                            </div>
+                            <div>
+                                <p>Middle Name</p>
+                                <input type="text" class="border border-indigo-300 focus:outline-none text-amber-600 selection:bg-indigo-50 selection:text-indigo-800 focus:border-indigo-800 rounded p-2 w-full text-sm placeholder:text-indigo-300 placeholder:tracking-widest placeholder:text-xs" placeholder="Middle name"/>
+                            </div>
+                            <div>
+                                <p>Last Name</p>
+                                <input type="text" class="border border-indigo-300 focus:outline-none text-amber-600 selection:bg-indigo-50 selection:text-indigo-800 focus:border-indigo-800 rounded p-2 w-full text-sm placeholder:text-indigo-300 placeholder:tracking-widest placeholder:text-xs" placeholder="Last name"/>
+                            </div>
+                            <div>
+                                <p>Name Extension</p>
+                                <input type="text" class="border border-indigo-300 focus:outline-none text-amber-600 selection:bg-indigo-50 selection:text-indigo-800 focus:border-indigo-800 rounded p-2 w-full text-sm placeholder:text-indigo-300 placeholder:tracking-widest placeholder:text-xs" placeholder="Name extension"/>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-5 space-x-2">
+                            <div class="col-start-2 ml-2">
+                                <p>Birthday</p>
+                                <input type="date" class="border border-indigo-300 focus:outline-none focus:border-indigo-800 text-amber-600 selection:bg-indigo-50 selection:text-indigo-800 p-2 text-sm rounded w-full"/>
+                            </div>
+                            <div>
+                                <p>Age</p>
+                                <input type="number" class="border border-indigo-300 focus:outline-none focus:border-indigo-800 text-amber-600 selection:bg-indigo-50 selection:text-indigo-800 p-2 text-sm rounded w-full" placeholder="00"/>
+                            </div>
+                            <div>
+                                <p>Civil Status</p>
+                                <input type="text" class="border border-indigo-300 focus:outline-none focus:border-indigo-800 text-amber-600 selection:bg-indigo-50 selection:text-indigo-800 p-2 text-sm rounded w-full" placeholder="Single/Married/Engaged"/>
+                            </div>
+                            <div class="space-y-6">
+                                <div>
+                                    <p>Position</p>
+                                    <select title="Select position" class="rounded-md bg-indigo-50 w-full p-2 pb-2.5 focus:outline-none border border-indigo-300 focus:border-indigo-800">
+                                        <option class="text-gray-200 bg-gray-700" selected disabled value="null">Select position</option>
+                                        <option value="position-1">Position 1</option>
+                                        <option value="position-2">Position 2</option>
+                                        <option value="position-3">Position 3</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <p>Generating Employee ID</p>
+                                    <p class="text-sm tracking-widest font-light">0000-0000-0000</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-5 space-x-2">
+                            <div class="col-start-2 ml-2">
+                                <p>Contact Number</p>
+                                <input type="number" class="border border-indigo-300 focus:outline-none focus:border-indigo-800 text-amber-600 selection:bg-indigo-50 selection:text-indigo-800 p-2 text-sm rounded w-full" placeholder="0000-000-0000"/>
+                            </div>
+                            <div class="mt-6 text-right">
+                                <p>Generating Employee Email</p>
+                                <p>Generating Temporary Password</p>
+                            </div>
+                            <div class="text-right mt-7 tracking-widest">
+                                <p>Email:</p>
+                                <p>Password:</p>
+                            </div>
+                            <div class="text-sm font-light mt-6">                        
+                                <p>employeename@plm.edu.ph</p>
+                                <p>employeepassword</p>
+                                <div class="flex justify-end items-center space-x-2">
+                                    <p class="text-amber-600 text-xs">Copy credentials</p>
+                                    <button type="button" class="p-1.5 border border-indigo-800 hover:border-amber-600 hover:text-amber-600 hover:bg-amber-50 active:bg-amber-200 rounded">
+                                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                            <path stroke="currentColor" stroke-linejoin="round" stroke-width="2" d="M9 8v3a1 1 0 0 1-1 1H5m11 4h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-7a1 1 0 0 0-1 1v1m4 3v10a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-7.13a1 1 0 0 1 .24-.65L7.7 8.35A1 1 0 0 1 8.46 8H13a1 1 0 0 1 1 1Z"/>
+                                        </svg>   
+                                    </button>  
+                                </div>   
+                            </div>
+                        </div>
+                        <div x-data="{isOpen1:false}">
+                            <div class="flex justify-end">
+                                <button type="button" class="p-2 shadow rounded-md shadow-indigo-500 hover:shadow-amber-600 hover:text-amber-600 hover:bg-amber-50 active:bg-amber-200 active:font-semibold mt-20" @click="isOpen1 = !isOpen1">
+                                    <p class="text-base font-light tracking-wider">Confirm</p>
+                                </button>
+                            </div>
+                            <div x-show="isOpen1" class="fixed bg-black bg-opacity-50 text-amber-600 inset-0 z-10 selection:bg-indigo-50 selection:text-indigo-800">
+                                <div class="relative top-1/3 mx-auto rounded shadow-md border border-amber-600 bg-white max-w-sm p-4">
+                                    <div class="border-b border-amber-300 pb-1.5">
+                                        <p class="text-xl font-thin tracking-widest">Employee Added</p>
+                                    </div>
+                                    <div class="text-sm py-3">
+                                        <p>A new employee is successfully added to the list.</p>
+                                    </div>
+                                    <div class="flex justify-end pt-6">
+                                        <button onclick="location.href='osds-administrator.html'" type="button" class="p-1.5 border border-amber-600 hover:border-indigo-800 hover:bg-indigo-50 hover:text-indigo-800 active:bg-indigo-200 active:font-semibold">
+                                            <p class="text-xs">Go back</p>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </article>
+        </main>
+    </body>
+</html>
